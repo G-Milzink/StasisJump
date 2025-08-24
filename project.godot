@@ -13,3 +13,15 @@ config_version=5
 config/name="StasisJump"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://globals/Global.gd"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://globals/": "yellow",
+"res://scenes/": "green"
+}
