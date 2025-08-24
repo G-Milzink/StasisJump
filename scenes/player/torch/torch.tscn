@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6hgv4qlhl16t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e6wf"]
+albedo_color = Color(0.543669, 0.458457, 0.288976, 1)
+metallic = 1.0
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_sub6t"]
+material = SubResource("StandardMaterial3D_4e6wf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7eu5"]
+emission_enabled = true
+emission = Color(1, 0.793, 0.46, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i3wdu"]
+material = SubResource("StandardMaterial3D_j7eu5")
+
+[node name="Torch" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.232289, 0, 0, 0, 0.31324, 0, 0, 0, 0.0654041, 0, -0.0635756, -0.0472543)
+mesh = SubResource("BoxMesh_sub6t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, -1.1365e-09, -0.17, 0, 0.026, -7.43094e-09, 0, -0.0222232, 0)
+mesh = SubResource("CylinderMesh_i3wdu")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 1.98784e-08, 0.973806, 0.227382, -8.51328e-08, 0.227382, -0.973806, 0, -0.022695, 0.0624113)
+light_energy = 1.5
+spot_range = 7.5

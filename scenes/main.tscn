@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx2h2dm4eox2c"]
+[gd_scene load_steps=6 format=3 uid="uid://dx2h2dm4eox2c"]
 
 [ext_resource type="Script" uid="uid://btit2tih4s56s" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bxgeh43vuuuyp" path="res://scenes/maps/map_00/map_00.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bhqxfueclspws" path="res://scenes/player/player.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b4vrnjnpiad3d" path="res://scenes/cameras/player_camera.tscn" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://dmh0whbq315ls" path="res://scenes/cameras/player_camera.gd" id="5_tipki"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_o5qli")
+
+[node name="Map_00" parent="." instance=ExtResource("2_tbgi4")]
+
+[node name="Player" parent="." instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6439, 0, -22.0251)
+
+[node name="PlayerCamera" parent="." instance=ExtResource("4_o6xl0")]
+script = ExtResource("5_tipki")

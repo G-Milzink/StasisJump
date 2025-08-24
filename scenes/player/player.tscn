@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhqxfueclspws"]
+[gd_scene load_steps=8 format=3 uid="uid://bhqxfueclspws"]
 
 [ext_resource type="Script" uid="uid://c65306n43kor" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="PackedScene" uid="uid://b6hgv4qlhl16t" path="res://scenes/player/torch/torch.tscn" id="2_dovo2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvxji"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7p2l"]
 albedo_color = Color(0.572988, 0.572988, 0.572988, 1)
@@ -15,20 +18,24 @@ emission = Color(0.301961, 0.886275, 0.709804, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_gmlin"]
 material = SubResource("StandardMaterial3D_dovo2")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvxji"]
-
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_8afob")
-
-[node name="Model" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000938892, 1, 0.00576484)
-mesh = SubResource("CapsuleMesh_8afob")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(0.461042, 0, 0, 0, 0.192377, 0, 0, 0, 0.489819, 0.383402, 0.460931, 0)
-mesh = SubResource("BoxMesh_gmlin")
-skeleton = NodePath("../..")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_lvxji")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Model" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.000938892, 1, 0.00576484)
+mesh = SubResource("CapsuleMesh_8afob")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Model"]
+transform = Transform3D(0.461042, 0, 0, 0, 0.192377, 0, 0, 0, 0.489819, 0.383402, 0.570104, 0)
+mesh = SubResource("BoxMesh_gmlin")
+skeleton = NodePath("../../..")
+
+[node name="Torch" parent="Pivot" instance=ExtResource("2_dovo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258627, 1.36769, 0.549154)
