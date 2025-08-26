@@ -1,13 +1,13 @@
 extends Node3D
 class_name base_prop
 
-@export_category("Interaction:")
+@export_group("Interaction:")
 @export var popup: String = "a prop"
 @export var hasDescription: bool 
 @export var description: String = "FLAVOR TEXT GOES HERE."
 @export var hasRepeatMessage: bool
 @export var repeatMessage: String = "IMPORTANT STUFF GOES HERE"
-@export_category("Nodes:")
+@export_group("Nodes:")
 @export var detectionArea: Area3D
 @export var popupLabel: Label3D
 @export var descriptionLabel: Label3D
