@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=7 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
+[ext_resource type="PackedScene" uid="uid://6oamktmoueen" path="res://scenes/props/console_00a_dead.tscn" id="2_lw0pn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -58,3 +59,17 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 3.14376, -16.9248)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Console_00a_dead" parent="Props" instance=ExtResource("2_lw0pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9983, 0, -23.7378)
+
+[node name="Console_00a_dead2" parent="Props" instance=ExtResource("2_lw0pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9983, 0, -23.7378)
+hasDescription = true
+
+[node name="Console_00a_dead3" parent="Props" instance=ExtResource("2_lw0pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9983, 0, -23.7378)
+hasDescription = true
+hasRepeatMessage = true

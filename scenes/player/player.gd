@@ -1,6 +1,11 @@
 extends CharacterBody3D
 
-#RayCast variables:
+
+#region Player variables
+var currentHealth: float
+#endregion
+
+#region RayCast variables
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var mousePosition = Vector3()
@@ -8,6 +13,7 @@ var spaceState : PhysicsDirectSpaceState3D
 var query :PhysicsRayQueryParameters3D
 var intersection : Dictionary
 var lookAtPosition = Vector3()
+#endregion
 
 const SPEED = 2.25
 
@@ -15,24 +21,15 @@ const SPEED = 2.25
 @onready var pivot: Node3D = $Pivot
 @onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")
 
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
+	apply_gravity(delta)
 	rotate_player()
-
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-
-	var input_dir := Input.get_vector("move_west", "move_east", "move_north", "move_south")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	calculate_velocity()
 	move_and_slide()
+
 
 func rotate_player():
 	spaceState = get_world_3d().direct_space_state
@@ -49,3 +46,17 @@ func rotate_player():
 		var direction = (lookAtPosition - pivot.global_transform.origin).normalized()
 		direction.y = 0
 		pivot.rotation.y = atan2(direction.x, direction.z)  
+
+func apply_gravity(delta):
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+func calculate_velocity():
+	var input_dir := Input.get_vector("move_west", "move_east", "move_north", "move_south")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)

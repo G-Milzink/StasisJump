@@ -1,7 +1,9 @@
-extends Node3D
+extends base_prop
+
 
 func _ready() -> void:
-	pass
+	super()
+
 
 func _process(delta: float) -> void:
-	pass
+	super(delta)
