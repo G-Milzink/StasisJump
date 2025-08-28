@@ -1,12 +1,12 @@
 extends Node3D
 class_name base_prop
 
-@export_group("Interaction:")
+@export_group("Settings:")
 @export var popup: String = "a prop"
 @export var hasDescription: bool 
-@export var description: String = "FLAVOR TEXT GOES HERE."
+@export var description: String = "MAIN DESCRIPTION GOES HERE."
 @export var hasRepeatMessage: bool
-@export var repeatMessage: String = "IMPORTANT STUFF GOES HERE"
+@export var repeatMessage: String = "IMPORTANT STUFF REPEATS HERE"
 @export_group("Nodes:")
 @export var detectionArea: Area3D
 @export var popupLabel: Label3D
@@ -19,6 +19,8 @@ const noDescription: Array = PropData.uselessPropDescriptions
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
+#===============================================================================
+
 func _ready() -> void:
 	popupLabel.set_text(popup)
 	popupLabel.visible = false
@@ -28,6 +30,7 @@ func _process(delta: float) -> void:
 	setInformation()
 	showInformation()
 
+#===============================================================================
 
 func setInformation():
 	if detectionArea.overlaps_body(player):

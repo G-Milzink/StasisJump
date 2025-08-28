@@ -19,7 +19,7 @@ const SPEED = 2.25
 
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 @onready var pivot: Node3D = $Pivot
-@onready var camera: Camera3D = get_tree().get_first_node_in_group("camera")
+@onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
 
 func _ready() -> void:
 	pass

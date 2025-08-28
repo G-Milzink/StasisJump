@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://cebsqk5dkj11m"]
+
+[ext_resource type="Script" uid="uid://dfri0cc3mguty" path="res://classes/base_object.gd" id="1_n1ujq"]
+[ext_resource type="PackedScene" uid="uid://dmbfsemiokgt3" path="res://assets/glb/objects/Console00a_live.glb" id="2_n1ujq"]
+[ext_resource type="FontFile" uid="uid://vlu6epr0scmj" path="res://assets/fonts/martius-font/Martius-LV9L4.ttf" id="3_8fmyi"]
+[ext_resource type="PackedScene" uid="uid://v31n81obopr7" path="res://scenes/objects/consoles/console_00a_live_interface.tscn" id="3_755xi"]
+
+[sub_resource type="Animation" id="Animation_bmtbn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chest_01_lid:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_he4hw"]
+resource_name = "action"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chest_01_lid:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7r8r7"]
+_data = {
+&"RESET": SubResource("Animation_bmtbn"),
+&"action": SubResource("Animation_he4hw")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fmyi"]
+size = Vector3(0.650848, 1.49792, 1)
+
+[node name="Console_00a_live" type="Node3D" node_paths=PackedStringArray("detectionArea", "popupLabel", "descriptionLabel", "actionPlayer", "interface", "interfaceCamera")]
+script = ExtResource("1_n1ujq")
+hasInterface = true
+detectionArea = NodePath("Detection")
+popupLabel = NodePath("Popup")
+descriptionLabel = NodePath("Description")
+actionPlayer = NodePath("ActionPlayer")
+interface = NodePath("Console_00a_live_interface")
+interfaceCamera = NodePath("InterfaceCamera")
+metadata/_custom_type_script = "uid://dfri0cc3mguty"
+
+[node name="Console00a_live" parent="." instance=ExtResource("2_n1ujq")]
+
+[node name="ActionPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7r8r7")
+}
+
+[node name="Detection" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.231827)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626205, 0.748962, 4.44089e-15)
+shape = SubResource("BoxShape3D_8fmyi")
+
+[node name="Popup" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.97901, 0)
+billboard = 1
+no_depth_test = true
+font = ExtResource("3_8fmyi")
+
+[node name="Description" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96787, 0)
+billboard = 1
+no_depth_test = true
+font = ExtResource("3_8fmyi")
+
+[node name="InterfaceCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.986544, 0.163498, 0, -0.163498, 0.986544, 0, 1.6945, 1.11239)
+
+[node name="Console_00a_live_interface" parent="." instance=ExtResource("3_755xi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0.173648, 0.984808, -7.5904e-09, 0.984808, -0.173648, -4.30473e-08, -4.15156e-09, 1.04069, 0.672488)
+visible = false

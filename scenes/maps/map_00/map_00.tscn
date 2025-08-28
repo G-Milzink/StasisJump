@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=9 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
 [ext_resource type="PackedScene" uid="uid://6oamktmoueen" path="res://scenes/props/console_00a_dead.tscn" id="2_lw0pn"]
+[ext_resource type="PackedScene" uid="uid://dqk4n4iu3csl0" path="res://scenes/objects/containers/chest_01.tscn" id="3_31le2"]
+[ext_resource type="PackedScene" uid="uid://cebsqk5dkj11m" path="res://scenes/objects/consoles/console_00a_live.tscn" id="4_20u7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -16,9 +18,13 @@ sky_material = SubResource("ProceduralSkyMaterial_aiir4")
 background_mode = 2
 sky = SubResource("Sky_lw0pn")
 tonemap_mode = 2
+ssr_enabled = true
 ssao_enabled = true
+ssil_enabled = true
 sdfgi_enabled = true
+sdfgi_use_occlusion = true
 glow_enabled = true
+glow_normalized = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_aiir4"]
 
@@ -41,29 +47,40 @@ data = {
 [node name="Lighting" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1242, 3.14376, -16.8935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0114, 2.3063, -13.0886)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
+omni_shadow_mode = 0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0775, 3.14376, -6.92355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98403, 2.3063, -4.01804)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
+omni_shadow_mode = 0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96836, 3.14376, -0.830827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96836, 2.3063, -0.830827)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
+omni_shadow_mode = 0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 3.14376, -16.9248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -21.0954)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
+omni_shadow_mode = 0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -10.9963)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
 
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Console_00a_dead" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9983, 0, -23.7378)
+popup = ""
 
 [node name="Console_00a_dead2" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9983, 0, -23.7378)
@@ -73,3 +90,15 @@ hasDescription = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9983, 0, -23.7378)
 hasDescription = true
 hasRepeatMessage = true
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Chest_01" parent="Objects" instance=ExtResource("3_31le2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -18)
+
+[node name="Chest_02" parent="Objects" instance=ExtResource("3_31le2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -20)
+hasResetAnimation = true
+
+[node name="Console_00a_live" parent="Objects" instance=ExtResource("4_20u7o")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -15)
