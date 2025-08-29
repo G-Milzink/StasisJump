@@ -15,13 +15,14 @@ class_name base_prop
 var isFirstInteraction: bool = true
 var isActive: bool = false
 
-const noDescription: Array = PropData.uselessPropDescriptions
+const noDescription: Array = StoryData.uselessPropDescriptions
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
 #===============================================================================
 
 func _ready() -> void:
+	applyConfigSettings()
 	popupLabel.set_text(popup)
 	popupLabel.visible = false
 	descriptionLabel.visible = false
@@ -31,6 +32,10 @@ func _process(delta: float) -> void:
 	showInformation()
 
 #===============================================================================
+
+func applyConfigSettings():
+	popupLabel.set_modulate(ConfigSettings.InterfaceTextColor)
+	descriptionLabel.set_modulate(ConfigSettings.InterfaceTextColor)
 
 func setInformation():
 	if detectionArea.overlaps_body(player):

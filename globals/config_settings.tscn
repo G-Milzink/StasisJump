@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgcfq84ff6bda"]
+
+[ext_resource type="Script" uid="uid://wr17hqpbfk02" path="res://globals/config_settings.gd" id="1_s2o5d"]
+
+[node name="ConfigSettings" type="Node"]
+script = ExtResource("1_s2o5d")
+InterfaceTextColor = Color(0.0779599, 0.721516, 0.734985, 1)

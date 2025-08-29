@@ -1,0 +1,182 @@
+[gd_scene load_steps=12 format=3 uid="uid://bi4rrw3qt260y"]
+
+[ext_resource type="Script" uid="uid://cdyc660txh45k" path="res://classes/base_door.gd" id="1_07vg8"]
+[ext_resource type="PackedScene" uid="uid://y6r4uketf3o4" path="res://assets/glb/doors/door00a/Door_00a_Left.glb" id="2_p72le"]
+[ext_resource type="PackedScene" uid="uid://66itibrd1tdq" path="res://assets/glb/doors/door00a/Door_00a_Right.glb" id="3_txbec"]
+[ext_resource type="PackedScene" uid="uid://cdbmt55ge1v56" path="res://assets/glb/doors/door00a/Door_00a_Sides.glb" id="4_s4jye"]
+
+[sub_resource type="Animation" id="Animation_hv1g7"]
+resource_name = "open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_00a_Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.8, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door_00a_Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.8, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7t1wt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_00a_Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.8, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door_00a_Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b4rvq"]
+resource_name = "closed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_00a_Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door_00a_Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jt8cr"]
+resource_name = "opening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_00a_Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(3.605, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.8, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door_00a_Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(3.605, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.8, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_an76j"]
+resource_name = "closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door_00a_Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(4.43829, 1),
+"update": 0,
+"values": [Vector3(-0.8, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door_00a_Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(4.43829, 1),
+"update": 0,
+"values": [Vector3(0.8, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pomri"]
+_data = {
+&"RESET": SubResource("Animation_7t1wt"),
+&"closed": SubResource("Animation_b4rvq"),
+&"closing": SubResource("Animation_an76j"),
+&"open": SubResource("Animation_hv1g7"),
+&"opening": SubResource("Animation_jt8cr")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p72le"]
+size = Vector3(2, 2, 1.5)
+
+[node name="Door00a" type="Node3D" node_paths=PackedStringArray("animationPlayer", "detectionArea")]
+script = ExtResource("1_07vg8")
+animationPlayer = NodePath("AnimationPlayer")
+detectionArea = NodePath("Area3D")
+metadata/_custom_type_script = "uid://cdyc660txh45k"
+
+[node name="Door_00a_Left" parent="." instance=ExtResource("2_p72le")]
+
+[node name="Door_00a_Right" parent="." instance=ExtResource("3_txbec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 0)
+
+[node name="Door_00a_Sides" parent="." instance=ExtResource("4_s4jye")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pomri")
+}
+autoplay = "closed"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_p72le")

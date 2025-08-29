@@ -7,6 +7,7 @@ class_name base_object
 @export var hasActionDescription: bool
 @export var hasActionAnimation: bool
 @export var actionDescription: String = "ACTION DESCRIPTION HERE"
+@export var actionIsReversable: bool
 @export var actionIsRepeatable: bool
 @export var hasResetAnimation: bool
 @export var hasInterface: bool
@@ -28,15 +29,19 @@ var isInterfaceActionPerformed: bool = false
 #===============================================================================
 
 func _ready() -> void:
+	applyConfigSettings()
 	setInfo()
 	connectSignals()
-	
 
 func _process(delta: float) -> void:
 	showInfo()
 	handleInteraction()
 
 #===============================================================================
+
+func applyConfigSettings():
+	popupLabel.set_modulate(ConfigSettings.InterfaceTextColor)
+	descriptionLabel.set_modulate(ConfigSettings.InterfaceTextColor)
 
 func handleInteraction():
 	if detectionArea.overlaps_body(player):
@@ -47,6 +52,8 @@ func handleInteraction():
 					actionPlayer.play("action")
 				elif actionIsRepeatable:
 					actionPlayer.play("action")
+				elif actionIsReversable:
+					actionPlayer.play("reset")
 			elif hasInterface:
 				if !isInterfaceOpen:
 					openInterface()

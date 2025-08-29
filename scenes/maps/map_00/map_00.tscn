@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=10 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
 [ext_resource type="PackedScene" uid="uid://6oamktmoueen" path="res://scenes/props/console_00a_dead.tscn" id="2_lw0pn"]
 [ext_resource type="PackedScene" uid="uid://dqk4n4iu3csl0" path="res://scenes/objects/containers/chest_01.tscn" id="3_31le2"]
 [ext_resource type="PackedScene" uid="uid://cebsqk5dkj11m" path="res://scenes/objects/consoles/console_00a_live.tscn" id="4_20u7o"]
+[ext_resource type="PackedScene" uid="uid://bi4rrw3qt260y" path="res://scenes/doors/door_00a.tscn" id="5_a8gvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -52,6 +53,12 @@ light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
 omni_shadow_mode = 0
 
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0114, 2.3063, -23.0886)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98403, 2.3063, -4.01804)
 light_color = Color(1, 0.804167, 0.53, 1)
@@ -95,6 +102,7 @@ hasRepeatMessage = true
 
 [node name="Chest_01" parent="Objects" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -18)
+actionIsReversable = true
 
 [node name="Chest_02" parent="Objects" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -20)
@@ -102,3 +110,7 @@ hasResetAnimation = true
 
 [node name="Console_00a_live" parent="Objects" instance=ExtResource("4_20u7o")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -15)
+
+[node name="Door00a" parent="." instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -17)
+doorState = "closed"
