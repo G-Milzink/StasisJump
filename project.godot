@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerData="*res://globals/player_data.tscn"
 StoryData="*res://globals/story_data.gd"
 ConfigSettings="*res://globals/config_settings.tscn"
+RandomGen="*res://globals/random_gen.gd"
 
 [debug]
 

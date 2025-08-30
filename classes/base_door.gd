@@ -12,6 +12,8 @@ var isFirstInteraction: bool = true
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
+#===============================================================================
+
 func _ready() -> void:
 	connectSignals()
 	if doorState == "open":
@@ -29,6 +31,8 @@ func _process(delta: float) -> void:
 				elif doorState == "closed":
 					doorState = "open"
 					animationPlayer.play("opening")
+
+#===============================================================================
 
 func connectSignals():
 	animationPlayer.animation_finished.connect(_on_animation_finished)

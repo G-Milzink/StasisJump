@@ -93,21 +93,32 @@ popup = ""
 
 [node name="Console_00a_dead2" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9983, 0, -23.7378)
+popup = "console"
 hasDescription = true
+messages = Array[String](["This console has definitely seen
+better days...", "IMPORTANT INFO REPEATS HERE"])
 
 [node name="Console_00a_dead3" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9983, 0, -23.7378)
+popup = "console"
 hasDescription = true
 hasRepeatMessage = true
+messages = Array[String](["At first glance the console looks dead
+like the others in the room.
+But then you notice the four number
+sequence flashing in the bottom right:
+0-4-5-1.", "0-4-5-1"])
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Chest_01" parent="Objects" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -17)
+popup = ""
 actionIsReversable = true
 
 [node name="Chest_02" parent="Objects" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -19)
+popup = ""
 resetsOnExit = true
 
 [node name="Console_00a_live" parent="Objects" instance=ExtResource("4_20u7o")]
@@ -117,6 +128,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75
 
 [node name="Door00a" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -17)
+
+[node name="Door00a3" parent="Doors" instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -7)
 
 [node name="Door00a2" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -3)

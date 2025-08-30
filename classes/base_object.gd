@@ -6,12 +6,14 @@ class_name base_object
 @export var hasAction: bool
 @export var hasActionDescription: bool
 @export var hasActionAnimation: bool
-@export var actionDescription: String = "ACTION DESCRIPTION HERE"
 @export var actionIsReversable: bool
 @export var actionIsRepeatable: bool
 @export var resetsOnExit: bool
 @export var hasInterface: bool
-@export var interfaceDescription: String = "INTERFACE DESCRIPTION HERE"
+@export_multiline var messages: Array[String] = [
+	"ACTION DESCRIPTION HERE", 
+	"INTERFACE DESCRIPTION HERE"
+	]
 @export_group("Nodes:")
 @export var detectionArea: Area3D
 @export var popupLabel: Label3D
@@ -23,12 +25,16 @@ class_name base_object
 var canPerformAction: bool = true
 var isInterfaceOpen: bool = false
 var isInterfaceActionPerformed: bool = false
+var actionDescription: String 
+var interfaceDescription: String 
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
 #===============================================================================
 
 func _ready() -> void:
+	actionDescription = messages[0]
+	interfaceDescription = messages[1]
 	applyConfigSettings()
 	setInfo()
 	connectSignals()
