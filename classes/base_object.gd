@@ -9,7 +9,7 @@ class_name base_object
 @export var actionDescription: String = "ACTION DESCRIPTION HERE"
 @export var actionIsReversable: bool
 @export var actionIsRepeatable: bool
-@export var hasResetAnimation: bool
+@export var resetsOnExit: bool
 @export var hasInterface: bool
 @export var interfaceDescription: String = "INTERFACE DESCRIPTION HERE"
 @export_group("Nodes:")
@@ -40,8 +40,8 @@ func _process(delta: float) -> void:
 #===============================================================================
 
 func applyConfigSettings():
-	popupLabel.set_modulate(ConfigSettings.InterfaceTextColor)
-	descriptionLabel.set_modulate(ConfigSettings.InterfaceTextColor)
+	popupLabel.set_modulate(ConfigSettings.interfaceTextColor)
+	descriptionLabel.set_modulate(ConfigSettings.interfaceTextColor)
 
 func handleInteraction():
 	if detectionArea.overlaps_body(player):
@@ -50,9 +50,11 @@ func handleInteraction():
 				if canPerformAction:
 					canPerformAction = false
 					actionPlayer.play("action")
-				elif actionIsRepeatable:
+				elif actionIsRepeatable && canPerformAction:
+					canPerformAction = false
 					actionPlayer.play("action")
-				elif actionIsReversable:
+				elif actionIsReversable && !canPerformAction:
+					canPerformAction = true
 					actionPlayer.play("reset")
 			elif hasInterface:
 				if !isInterfaceOpen:
@@ -78,12 +80,13 @@ func showInfo():
 func connectSignals():
 	detectionArea.body_exited.connect(_on_player_exit)
 
-func _on_player_exit(body: Node3D) -> void:
-	if body.is_in_group("player") && hasResetAnimation:
-		actionPlayer.play("reset")
+func _on_player_exit(body: Node3D):
+	if body.is_in_group("player") && resetsOnExit:
 		canPerformAction = true
+		actionPlayer.play("reset")
 
 func openInterface():
+	PlayerData.hasControl = false
 	isInterfaceOpen = true
 	player.visible = false
 	interface.visible = true
@@ -94,3 +97,4 @@ func closeInterface():
 	player.visible = true
 	interface.visible = false
 	get_tree().get_first_node_in_group("playerCamera").make_current()
+	PlayerData.hasControl = true

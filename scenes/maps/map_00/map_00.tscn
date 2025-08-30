@@ -48,7 +48,7 @@ data = {
 [node name="Lighting" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0114, 2.3063, -13.0886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0114, 2.3063, -12.0886)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
 omni_shadow_mode = 0
@@ -60,9 +60,11 @@ shadow_enabled = true
 omni_shadow_mode = 0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98403, 2.3063, -4.01804)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.984, 2.3063, -7.01804)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
+omni_range = 8.0
+omni_attenuation = 0.8
 omni_shadow_mode = 0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting"]
@@ -72,13 +74,13 @@ shadow_enabled = true
 omni_shadow_mode = 0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -21.0954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -23.0954)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
 omni_shadow_mode = 0
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -10.9963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -11.9963)
 light_color = Color(1, 0.804167, 0.53, 1)
 shadow_enabled = true
 omni_shadow_mode = 0
@@ -86,31 +88,36 @@ omni_shadow_mode = 0
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Console_00a_dead" parent="Props" instance=ExtResource("2_lw0pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9983, 0, -23.7378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9983, 0, -23.7378)
 popup = ""
 
 [node name="Console_00a_dead2" parent="Props" instance=ExtResource("2_lw0pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9983, 0, -23.7378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9983, 0, -23.7378)
 hasDescription = true
 
 [node name="Console_00a_dead3" parent="Props" instance=ExtResource("2_lw0pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9983, 0, -23.7378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9983, 0, -23.7378)
 hasDescription = true
 hasRepeatMessage = true
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Chest_01" parent="Objects" instance=ExtResource("3_31le2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -17)
 actionIsReversable = true
 
 [node name="Chest_02" parent="Objects" instance=ExtResource("3_31le2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -20)
-hasResetAnimation = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -19)
+resetsOnExit = true
 
 [node name="Console_00a_live" parent="Objects" instance=ExtResource("4_20u7o")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -15)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -7)
 
-[node name="Door00a" parent="." instance=ExtResource("5_a8gvr")]
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Door00a" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -17)
-doorState = "closed"
+
+[node name="Door00a2" parent="Doors" instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -3)
+requiredClearance = 1

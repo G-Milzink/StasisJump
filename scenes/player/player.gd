@@ -26,9 +26,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	rotate_player()
-	calculate_velocity()
-	move_and_slide()
+	if PlayerData.hasControl:
+		rotate_player()
+		calculate_velocity()
+		move_and_slide()
 
 
 func rotate_player():

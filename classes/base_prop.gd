@@ -34,8 +34,8 @@ func _process(delta: float) -> void:
 #===============================================================================
 
 func applyConfigSettings():
-	popupLabel.set_modulate(ConfigSettings.InterfaceTextColor)
-	descriptionLabel.set_modulate(ConfigSettings.InterfaceTextColor)
+	popupLabel.set_modulate(ConfigSettings.interfaceTextColor)
+	descriptionLabel.set_modulate(ConfigSettings.interfaceTextColor)
 
 func setInformation():
 	if detectionArea.overlaps_body(player):

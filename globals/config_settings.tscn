@@ -4,4 +4,5 @@
 
 [node name="ConfigSettings" type="Node"]
 script = ExtResource("1_s2o5d")
-InterfaceTextColor = Color(0.0779599, 0.721516, 0.734985, 1)
+interfaceBorderColor = Color(0, 0.504, 0.56, 1)
+interfaceTextColor = Color(0, 0.738, 0.82, 1)

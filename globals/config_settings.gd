@@ -1,3 +1,4 @@
 extends Node
 
-@export var InterfaceTextColor: Color
+@export var interfaceBorderColor: Color
+@export var interfaceTextColor: Color
