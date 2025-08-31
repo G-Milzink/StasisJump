@@ -87,3 +87,9 @@ transform = Transform3D(1, 0, 0, 0, 0.986544, 0.163498, 0, -0.163498, 0.986544, 
 [node name="Console_00a_live_interface" parent="." instance=ExtResource("3_755xi")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0.173648, 0.984808, -7.5904e-09, 0.984808, -0.173648, -4.30473e-08, -4.15156e-09, 1.04069, 0.672488)
 visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72907, 0.46586)
+light_color = Color(0.736901, 1, 0.869802, 1)
+light_energy = 0.3
+shadow_enabled = true

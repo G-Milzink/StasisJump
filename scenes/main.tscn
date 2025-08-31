@@ -9,10 +9,10 @@
 [node name="Main" type="Node3D"]
 script = ExtResource("1_o5qli")
 
-[node name="Map_00" parent="." instance=ExtResource("2_tbgi4")]
-
 [node name="Player" parent="." instance=ExtResource("3_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3136, 0, -7.62104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3136, 0, -19.8953)
+
+[node name="Map_00" parent="." instance=ExtResource("2_tbgi4")]
 
 [node name="PlayerCamera" parent="." instance=ExtResource("4_o6xl0")]
 script = ExtResource("5_tipki")

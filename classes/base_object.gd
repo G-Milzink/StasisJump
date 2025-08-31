@@ -1,19 +1,24 @@
 extends Node3D
 class_name base_object
 
-@export_group("Settings:")
-@export var popup: String = "an object"
-@export var hasAction: bool
+@export_group("Interaction:")
+@export_group("messages:")
 @export var hasActionDescription: bool
-@export var hasActionAnimation: bool
-@export var actionIsReversable: bool
-@export var actionIsRepeatable: bool
-@export var resetsOnExit: bool
-@export var hasInterface: bool
+@export var hasInterfaceDescription: bool
 @export_multiline var messages: Array[String] = [
+	"an object",
 	"ACTION DESCRIPTION HERE", 
 	"INTERFACE DESCRIPTION HERE"
 	]
+@export var hasAction: bool
+@export var hasActionAnimation: bool
+@export var actionIsRepeatable: bool
+@export var actionIsReversable: bool
+@export var hasInterface: bool
+@export var requiresCode: bool
+@export var isTrigger: bool
+@export var resetsOnExit: bool
+
 @export_group("Nodes:")
 @export var detectionArea: Area3D
 @export var popupLabel: Label3D
@@ -21,23 +26,25 @@ class_name base_object
 @export var actionPlayer: AnimationPlayer
 @export var interface: Node3D
 @export var interfaceCamera: Camera3D
+@export var codeSource: base_prop
 
 var canPerformAction: bool = true
 var isInterfaceOpen: bool = false
 var isInterfaceActionPerformed: bool = false
 var actionDescription: String 
-var interfaceDescription: String 
+var interfaceDescription: String
+var canTrigger: bool = true
+var popup: String
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
 #===============================================================================
 
 func _ready() -> void:
-	actionDescription = messages[0]
-	interfaceDescription = messages[1]
 	applyConfigSettings()
-	setInfo()
 	connectSignals()
+	intialSetup()
+	setInfo()
 
 func _process(delta: float) -> void:
 	showInfo()
@@ -48,6 +55,11 @@ func _process(delta: float) -> void:
 func applyConfigSettings():
 	popupLabel.set_modulate(ConfigSettings.interfaceTextColor)
 	descriptionLabel.set_modulate(ConfigSettings.interfaceTextColor)
+
+func intialSetup():
+	popup = messages[0]
+	actionDescription = messages[1]
+	interfaceDescription = messages[2]
 
 func handleInteraction():
 	if detectionArea.overlaps_body(player):

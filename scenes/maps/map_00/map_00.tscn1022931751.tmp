@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=10 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
 [ext_resource type="PackedScene" uid="uid://6oamktmoueen" path="res://scenes/props/console_00a_dead.tscn" id="2_lw0pn"]
 [ext_resource type="PackedScene" uid="uid://dqk4n4iu3csl0" path="res://scenes/objects/containers/chest_01.tscn" id="3_31le2"]
 [ext_resource type="PackedScene" uid="uid://cebsqk5dkj11m" path="res://scenes/objects/consoles/console_00a_live.tscn" id="4_20u7o"]
 [ext_resource type="PackedScene" uid="uid://bi4rrw3qt260y" path="res://scenes/doors/door_00a.tscn" id="5_a8gvr"]
-[ext_resource type="PackedScene" uid="uid://bkfspar7ccqmy" path="res://scenes/lights/wall_light_01.tscn" id="6_isj55"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -49,6 +48,44 @@ data = {
 
 [node name="Lighting" type="Node3D" parent="."]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0114, 2.3063, -12.0886)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0114, 2.3063, -23.0886)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.984, 2.3063, -7.01804)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_range = 8.0
+omni_attenuation = 0.8
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96836, 2.3063, -0.830827)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -23.0954)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99558, 2.3063, -11.9963)
+light_color = Color(1, 0.804167, 0.53, 1)
+shadow_enabled = true
+omni_shadow_mode = 0
+
 [node name="Props" type="Node3D" parent="."]
 
 [node name="Console_00a_dead" parent="Props" instance=ExtResource("2_lw0pn")]
@@ -84,10 +121,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -19)
 messages = Array[String](["", "ACTION DESCRIPTION HERE", "INTERFACE DESCRIPTION HERE"])
 resetsOnExit = true
 
-[node name="Console_00a_live" parent="Objects" node_paths=PackedStringArray("codeSource") instance=ExtResource("4_20u7o")]
+[node name="Console_00a_live" parent="Objects" instance=ExtResource("4_20u7o")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -7)
 requiresCode = true
-codeSource = NodePath("../../Props/Console_00a_dead3")
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -100,9 +136,3 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0,
 [node name="Door00a2" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -3)
 requiredClearance = 1
-
-[node name="wallLight_01" parent="." instance=ExtResource("6_isj55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40407, 2.51965, -24.0326)
-color = Color(0.87, 0.86478, 0.5568, 1)
-strength = 0.4
-shadows = true

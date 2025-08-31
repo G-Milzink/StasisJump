@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkfspar7ccqmy"]
+
+[ext_resource type="Script" uid="uid://ds220uoseyktw" path="res://classes/base_light.gd" id="1_833au"]
+[ext_resource type="PackedScene" uid="uid://cxivypjjxjf07" path="res://assets/glb/lights/wallLight_01.glb" id="2_lch2r"]
+
+[node name="wallLight_01" type="Node3D" node_paths=PackedStringArray("light")]
+script = ExtResource("1_833au")
+light = NodePath("OmniLight3D")
+color = Color(0.930306, 0.937442, 0.920707, 1)
+shadows = false
+metadata/_custom_type_script = "uid://ds220uoseyktw"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0776076, 0.0321144)
+shadow_enabled = true
+
+[node name="wallLight_012" parent="." instance=ExtResource("2_lch2r")]

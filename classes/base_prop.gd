@@ -1,26 +1,29 @@
 extends Node3D
 class_name base_prop
 
-@export_group("Settings:")
-@export var popup: String = "a prop"
+@export_group("Messages:")
 @export var hasDescription: bool 
 @export var hasRepeatMessage: bool
 @export_multiline var messages: Array[String] = [
+	"a prop",
 	"DESCRIPTION GOES HERE", 
 	"IMPORTANT INFO REPEATS HERE"
 	]
-@export_group("Nodes:")
-@export var detectionArea: Area3D
 @export var popupLabel: Label3D
 @export var descriptionLabel: Label3D
 @export_group("Randomization:")
-@export var canGenerateCode: bool
-@export var generatesCode: bool
+@export var canReceiveCode: bool
+@export_group("Nodes:")
+@export var detectionArea: Area3D
+
 
 var isFirstInteraction: bool = true
 var isActive: bool = false
+var popup: String
 var description: String
 var repeatMessage: String
+var hasCode: bool = false
+var code: String
 
 const noDescription: Array = StoryData.uselessPropDescriptions
 
@@ -29,12 +32,10 @@ const noDescription: Array = StoryData.uselessPropDescriptions
 #===============================================================================
 
 func _ready() -> void:
-	description = messages[0]
-	repeatMessage = messages[1]
 	applyConfigSettings()
-	popupLabel.set_text(popup)
-	popupLabel.visible = false
-	descriptionLabel.visible = false
+	receiveCode()
+	initialSetup()
+	
 
 func _process(delta: float) -> void:
 	setInformation()
@@ -45,6 +46,17 @@ func _process(delta: float) -> void:
 func applyConfigSettings():
 	popupLabel.set_modulate(ConfigSettings.interfaceTextColor)
 	descriptionLabel.set_modulate(ConfigSettings.interfaceTextColor)
+
+func initialSetup():
+	popup = messages[0]
+	description = messages[1]
+	repeatMessage = messages[2]
+	popupLabel.set_text(popup)
+	popupLabel.visible = false
+	descriptionLabel.visible = false
+	if hasCode:
+		description = description + code
+		repeatMessage = repeatMessage + code
 
 func setInformation():
 	if detectionArea.overlaps_body(player):
@@ -73,3 +85,12 @@ func showInformation():
 	else:
 		popupLabel.visible = false
 		descriptionLabel.visible = false
+
+func receiveCode():
+	if canReceiveCode:
+		canReceiveCode = false
+		code = RandomGen.generateCode()
+		hasCode = true
+
+func shareCode():
+	return code
