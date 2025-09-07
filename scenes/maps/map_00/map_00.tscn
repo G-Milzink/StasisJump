@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=9 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
 [ext_resource type="PackedScene" uid="uid://c0q0usyoi1dn4" path="res://scenes/props/dev_prop.tscn" id="2_lw0pn"]
 [ext_resource type="PackedScene" uid="uid://cbyl04xdgcv55" path="res://scenes/props/dev_prop_flavored.tscn" id="3_31le2"]
+[ext_resource type="PackedScene" uid="uid://hq0bafq8o7m0" path="res://scenes/props/dev_prop_coded.tscn" id="4_20u7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -69,6 +70,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -23.7887)
 hasRepeatMessage = true
 label = "Flavored Prop w Repeat"
 hasUselessMessage = false
+
+[node name="DevProp_Coded" parent="Props" instance=ExtResource("4_20u7o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.5, 0, -21)
+initialMessage = Array[String](["Use this to wrap a code like  ", "*code*", " in a proper sentence."])
+repeatMessage = Array[String](["This message repeats the code: ", "*code*", "..."])
+label = "Prop w Code"
 
 [node name="Objects" type="Node3D" parent="."]
 

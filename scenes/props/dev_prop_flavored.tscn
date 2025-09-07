@@ -38,3 +38,4 @@ shape = SubResource("BoxShape3D_ccwst")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00327, 0)
 billboard = 1
 no_depth_test = true
+autowrap_mode = 2
