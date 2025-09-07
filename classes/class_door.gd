@@ -1,5 +1,6 @@
+@icon("uid://imbadnnatkhh") 
 extends Node3D
-class_name base_door
+class_name Door
 
 @export_group("settings:")
 @export_enum("open", "closed") var doorState: String = "closed"
