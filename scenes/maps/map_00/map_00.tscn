@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=6 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
-[ext_resource type="PackedScene" uid="uid://bkfspar7ccqmy" path="res://scenes/lights/wall_light_01.tscn" id="6_isj55"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -50,9 +49,3 @@ data = {
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Doors" type="Node3D" parent="."]
-
-[node name="wallLight_01" parent="." instance=ExtResource("6_isj55")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40407, 2.51965, -24.0326)
-color = Color(0.87, 0.86478, 0.5568, 1)
-strength = 0.4
-shadows = true
