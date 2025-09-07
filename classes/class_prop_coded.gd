@@ -1,5 +1,5 @@
-extends Prop
-class_name Prop_Coded
+extends _Prop
+class_name _Prop_Coded
 
 #===============================================================================
 

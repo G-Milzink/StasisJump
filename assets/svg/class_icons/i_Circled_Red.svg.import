@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://imbadnnatkhh"
-path="res://.godot/imported/Elevator_Red.svg-57830d4d7823c26065e4be0ebcc817f4.ctex"
+uid="uid://c8ulrkgg0rfus"
+path="res://.godot/imported/i_Circled_Red.svg-a88d8ddd2eebd92e02f12969de5c15bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/class_icons/Elevator_Red.svg"
-dest_files=["res://.godot/imported/Elevator_Red.svg-57830d4d7823c26065e4be0ebcc817f4.ctex"]
+source_file="res://assets/svg/class_icons/i_Circled_Red.svg"
+dest_files=["res://.godot/imported/i_Circled_Red.svg-a88d8ddd2eebd92e02f12969de5c15bd.ctex"]
 
 [params]
 

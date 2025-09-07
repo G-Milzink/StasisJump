@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt4xnukgr4mcs"
-path="res://.godot/imported/interface_border.png-778dc2d7e7c4873d0ec045959506a91b.ctex"
+uid="uid://c515tj4lmbvv1"
+path="res://.godot/imported/splashScreen.png-d8dda359c3204952776e7930e4510f93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/png/ui/interface_border.png"
-dest_files=["res://.godot/imported/interface_border.png-778dc2d7e7c4873d0ec045959506a91b.ctex"]
+source_file="res://assets/png/ui/interfaces/splashScreen.png"
+dest_files=["res://.godot/imported/splashScreen.png-d8dda359c3204952776e7930e4510f93.ctex"]
 
 [params]
 

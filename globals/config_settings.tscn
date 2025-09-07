@@ -6,3 +6,4 @@
 script = ExtResource("1_s2o5d")
 interfaceBorderColor = Color(0, 0.504, 0.56, 1)
 interfaceTextColor = Color(0, 0.738, 0.82, 1)
+interfaceLightingColor = Color(0, 0.738, 0.82, 1)

@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://hq0bafq8o7m0"]
+[gd_scene load_steps=6 format=3 uid="uid://hq0bafq8o7m0"]
 
 [ext_resource type="Script" uid="uid://byexliw0bn2a4" path="res://classes/class_prop_coded.gd" id="1_5stfc"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5stfc"]
+albedo_color = Color(0.99, 0.71511, 0.5049, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_kmf3n"]
+material = SubResource("StandardMaterial3D_5stfc")
 size = Vector3(0.8, 2, 0.4)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qrrbk"]

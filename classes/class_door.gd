@@ -1,6 +1,6 @@
-@icon("uid://imbadnnatkhh") 
+@icon("uid://duaa4aygnhcyo") 
 extends Node3D
-class_name Door
+class_name _Door
 
 @export_group("settings:")
 @export_enum("open", "closed") var doorState: String = "closed"
@@ -17,31 +17,37 @@ var isFirstInteraction: bool = true
 
 func _ready() -> void:
 	connectSignals()
-	if doorState == "open":
-		animationPlayer.play("open")
-	elif doorState == "closed":
-		animationPlayer.play("closed")
+	handleInitalDoorState()
 
 func _process(delta: float) -> void:
 	if detectionArea.overlaps_body(player):
 		if Input.is_action_just_pressed("interact"):
 			if PlayerData.ClearanceLevel >= requiredClearance:
-				if doorState == "open":
-					animationPlayer.play("closing")
-					doorState = "closed"
-				elif doorState == "closed":
-					doorState = "open"
-					animationPlayer.play("opening")
+				handleDynamicDoorState()
 
 #===============================================================================
 
 func connectSignals():
 	animationPlayer.animation_finished.connect(_on_animation_finished)
 
-func _on_animation_finished(name):
+func _on_animation_finished(anim):
 	if isFirstInteraction:
-		if name == "opening" || name == "closing":
+		if anim == "opening" || anim == "closing":
 			useDoorToTrigger()
 
 func useDoorToTrigger():
 	isFirstInteraction = false
+
+func handleInitalDoorState():
+	if doorState == "open":
+		animationPlayer.play("open")
+	elif doorState == "closed":
+		animationPlayer.play("closed")
+
+func handleDynamicDoorState():
+	if doorState == "open":
+		doorState = "closed"
+		animationPlayer.play("closing")
+	elif doorState == "closed":
+		doorState = "open"
+		animationPlayer.play("opening")

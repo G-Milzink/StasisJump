@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q7q0ygywgcbh"
-path="res://.godot/imported/P_Circled_Red.svg-3b0af27586f1bb5079b7e3b8c4ed1bfe.ctex"
+uid="uid://cwe02f74f1ie5"
+path="res://.godot/imported/vignette.png-f04049c3861b4190393782ed406ad40f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/class_icons/P_Circled_Red.svg"
-dest_files=["res://.godot/imported/P_Circled_Red.svg-3b0af27586f1bb5079b7e3b8c4ed1bfe.ctex"]
+source_file="res://assets/png/ui/interfaces/vignette.png"
+dest_files=["res://.godot/imported/vignette.png-f04049c3861b4190393782ed406ad40f.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

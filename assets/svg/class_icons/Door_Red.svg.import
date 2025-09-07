@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h5ynnctommq1"
-path="res://.godot/imported/O_Circled_Red.svg-b4d417b57285c1ca7263ff48d3d4825c.ctex"
+uid="uid://duaa4aygnhcyo"
+path="res://.godot/imported/Door_Red.svg-77ae600bbed104e6c831d2d453e331da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/class_icons/O_Circled_Red.svg"
-dest_files=["res://.godot/imported/O_Circled_Red.svg-b4d417b57285c1ca7263ff48d3d4825c.ctex"]
+source_file="res://assets/svg/class_icons/Door_Red.svg"
+dest_files=["res://.godot/imported/Door_Red.svg-77ae600bbed104e6c831d2d453e331da.ctex"]
 
 [params]
 

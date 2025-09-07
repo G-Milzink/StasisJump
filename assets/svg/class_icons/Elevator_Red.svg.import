@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigai7bw2736c"
-path="res://.godot/imported/Door-Red.svg-bb4dd9f684e347ab490192e0da2e58d5.ctex"
+uid="uid://imbadnnatkhh"
+path="res://.godot/imported/Elevator_Red.svg-9cde03822f5b49f4fe42baac2486c95f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/class_icons/Door-Red.svg"
-dest_files=["res://.godot/imported/Door-Red.svg-bb4dd9f684e347ab490192e0da2e58d5.ctex"]
+source_file="res://assets/svg/class_icons/Elevator_Red.svg"
+dest_files=["res://.godot/imported/Elevator_Red.svg-9cde03822f5b49f4fe42baac2486c95f.ctex"]
 
 [params]
 
