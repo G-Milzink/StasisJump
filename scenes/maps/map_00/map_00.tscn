@@ -53,28 +53,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0366, 0, -23.7835)
 
 [node name="DevProp2" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0366, 0, -23.7835)
-label = "label"
+label = "prop"
 
 [node name="DevProp3" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0366, 0, -23.7835)
-label = "label"
+label = "prop w useless message"
 hasUselessMessage = true
 
 [node name="DevProp_Flavored" parent="Props" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -23.7887)
-flavorText = "This is some flavortext.
-It only shows on the first 
-interaction."
 label = "Flavored Prop"
 
 [node name="DevProp_Flavored2" parent="Props" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -23.7887)
-flavorText = "This is some flavortext.
-It only shows on the first 
-interaction."
 hasRepeatMessage = true
-repeatMessage = "This message will repeat
-ad infinitum."
 label = "Flavored Prop w Repeat"
 hasUselessMessage = false
 

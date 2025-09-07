@@ -2,6 +2,8 @@
 class_name Prop
 extends Node3D
 
+#===============================================================================
+
 @export var label: String
 @export var hasUselessMessage: bool
 @export var detectionArea: Area3D
