@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba67fqi642ugn"]
+[gd_scene load_steps=10 format=3 uid="uid://ba67fqi642ugn"]
 
 [ext_resource type="Script" uid="uid://dxi6dwc2a5g65" path="res://classes/class_interface.gd" id="1_pjgsk"]
 [ext_resource type="Texture2D" uid="uid://c515tj4lmbvv1" path="res://assets/png/ui/interfaces/splashScreen.png" id="2_7xdjf"]
 [ext_resource type="Texture2D" uid="uid://cwe02f74f1ie5" path="res://assets/png/ui/interfaces/vignette.png" id="3_x4uwk"]
+[ext_resource type="Texture2D" uid="uid://botma0kbogpl3" path="res://assets/png/ui/interfaces/back_button.png" id="4_x4uwk"]
 
 [sub_resource type="Animation" id="Animation_vqqhf"]
 resource_name = "activate"
@@ -200,11 +201,12 @@ _data = {
 &"default": SubResource("Animation_7xdjf")
 }
 
-[node name="DevInterface" type="Node3D" node_paths=PackedStringArray("control", "animationPlayer", "camera")]
+[node name="DevInterface" type="Node3D" node_paths=PackedStringArray("control", "animationPlayer", "camera", "exitButton")]
 script = ExtResource("1_pjgsk")
 control = NodePath("Control")
 animationPlayer = NodePath("AnimationPlayer")
 camera = NodePath("Camera")
+exitButton = NodePath("Control/Exit")
 metadata/_custom_type_script = "uid://dxi6dwc2a5g65"
 
 [node name="Control" type="Control" parent="."]
@@ -244,8 +246,11 @@ anchor_right = 1.0
 offset_left = -8.0
 offset_bottom = 8.0
 grow_horizontal = 0
-text = "EXIT
+text = "
 "
+icon = ExtResource("4_x4uwk")
+flat = true
+icon_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -50,7 +50,8 @@ func intialSetup():
 func conectSignals():
 	detectionArea.body_entered.connect(_on_body_entered)
 	detectionArea.body_exited.connect(_on_body_exit)
-	animationPlayer.animation_finished.connect(_on_animation_finsihed)
+	animationPlayer.animation_finished.connect(_on_animation_finished)
+	interface.interface_has_closed.connect(_on_interface_has_closed)
 
 func _on_body_entered(body):
 	if body == player:
@@ -74,10 +75,13 @@ func handleInteraction():
 			if hasAnimation:
 				animationPlayer.play("activate")
 
-func _on_animation_finsihed(anim):
+func _on_animation_finished(anim):
 	if anim == "activate":
 		player.set_visible(false)
 		interface.set_visible(true)
 		interface.open()
 	if anim == "deactivate":
-		pass
+		isActive = false
+
+func _on_interface_has_closed():
+	animationPlayer.play("deactivate")
