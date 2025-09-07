@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=10 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
+[ext_resource type="PackedScene" uid="uid://dqk4n4iu3csl0" path="res://scenes/objects/containers/chest_01.tscn" id="3_31le2"]
+[ext_resource type="PackedScene" uid="uid://cebsqk5dkj11m" path="res://scenes/objects/consoles/console_00a_live.tscn" id="4_20u7o"]
+[ext_resource type="PackedScene" uid="uid://bi4rrw3qt260y" path="res://scenes/doors/door_00a.tscn" id="5_a8gvr"]
 [ext_resource type="PackedScene" uid="uid://bkfspar7ccqmy" path="res://scenes/lights/wall_light_01.tscn" id="6_isj55"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
@@ -49,7 +52,32 @@ data = {
 
 [node name="Objects" type="Node3D" parent="."]
 
+[node name="Chest_01" parent="Objects" instance=ExtResource("3_31le2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -17)
+messages = Array[String](["", "ACTION DESCRIPTION HERE", "INTERFACE DESCRIPTION HERE"])
+actionIsReversable = true
+
+[node name="Chest_02" parent="Objects" instance=ExtResource("3_31le2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -19)
+messages = Array[String](["", "ACTION DESCRIPTION HERE", "INTERFACE DESCRIPTION HERE"])
+resetsOnExit = true
+
+[node name="Console_00a_live" parent="Objects" node_paths=PackedStringArray("codeSource") instance=ExtResource("4_20u7o")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -7)
+requiresCode = true
+codeSource = NodePath("")
+
 [node name="Doors" type="Node3D" parent="."]
+
+[node name="Door00a" parent="Doors" instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -17)
+
+[node name="Door00a3" parent="Doors" instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -7)
+
+[node name="Door00a2" parent="Doors" instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -3)
+requiredClearance = 1
 
 [node name="wallLight_01" parent="." instance=ExtResource("6_isj55")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40407, 2.51965, -24.0326)

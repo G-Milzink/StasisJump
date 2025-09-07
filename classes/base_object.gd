@@ -26,7 +26,7 @@ class_name base_object
 @export var actionPlayer: AnimationPlayer
 @export var interface: Node3D
 @export var interfaceCamera: Camera3D
-@export var codeSource: base_prop
+@export var codeSource: Prop
 
 var canPerformAction: bool = true
 var isInterfaceOpen: bool = false

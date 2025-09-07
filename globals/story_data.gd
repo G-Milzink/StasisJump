@@ -1,7 +1,8 @@
 extends Node
 
 
-const uselessPropDescriptions: Array = [
+#region Useless Messages
+const uselessMessages: Array = [
 	"Nothing of interest here...",
 	"This is of no use to me.",
 	"I see no way to use this.",
@@ -9,3 +10,6 @@ const uselessPropDescriptions: Array = [
 	"Useless.",
 	"....."
 ]
+func getUselessMessages() -> Array:
+	return uselessMessages
+#endregion
