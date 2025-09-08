@@ -5,6 +5,7 @@ class_name _Object
 #===============================================================================
 
 @export var label: String
+@export var isLocked: bool
 @export var hasLighting: bool
 @export var lighting: Light3D
 @export var hasAnimation: bool
@@ -16,10 +17,7 @@ class_name _Object
 @export var interface: _Interface
 
 
-
-
 var message: String
-
 var playerInRange: bool = false
 var showingMessage: bool = false
 var isActive: bool = false
@@ -40,6 +38,7 @@ func _process(delta: float) -> void:
 
 func intialSetup():
 	interface.set_visible(false)
+	interface.isLocked = isLocked
 	textDisplay.set_modulate(ConfigSettings.interfaceTextColor)
 	message = label
 	textDisplay.set_text(message)

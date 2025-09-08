@@ -349,6 +349,7 @@ _data = {
 [node name="DevObject" type="Node3D" node_paths=PackedStringArray("lighting", "animationPlayer", "detectionArea", "textDisplay", "interface")]
 script = ExtResource("1_fickp")
 label = "object"
+isLocked = true
 hasLighting = true
 lighting = NodePath("Lighting")
 hasAnimation = true

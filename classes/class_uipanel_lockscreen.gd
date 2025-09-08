@@ -1,0 +1,2 @@
+extends _UIPanel
+class_name _UIPanel_Lockscreen
