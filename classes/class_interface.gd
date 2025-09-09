@@ -20,6 +20,7 @@ signal interface_has_closed
 #===============================================================================
 
 func _ready() -> void:
+	lockScreen.code_entered.connect(_on_code_entered)
 	exitButton.button_down.connect(_on_buttton_down)
 	exitButton.set_modulate(ConfigSettings.interfaceTextColor)
 	animationPlayer.animation_finished.connect(_on_animation_finished)
@@ -61,3 +62,8 @@ func handleDeactivation():
 	get_tree().get_first_node_in_group("playerCamera").set_current(true)
 	PlayerData.hasControl = true
 	interface_has_closed.emit()
+
+func _on_code_entered():
+	isLocked = false
+	lockScreen.set_visible(false)
+	mainScreen.set_visible(true)

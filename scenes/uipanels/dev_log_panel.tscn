@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://otsoy25ot5o5"]
+[gd_scene load_steps=4 format=3 uid="uid://otsoy25ot5o5"]
 
 [ext_resource type="Script" uid="uid://vnk5ebwi1gmx" path="res://classes/class_ui_panel_log.gd" id="1_gai2q"]
 [ext_resource type="Texture2D" uid="uid://2ldgntk8ects" path="res://assets/png/ui/uipanels/uipanel_border.png" id="2_15713"]
+[ext_resource type="FontFile" uid="uid://bi4mpm5bc5t6v" path="res://assets/fonts/effortless/effortless.ttf" id="3_k8q5f"]
 
 [node name="Dev_LogPanel" type="Control" node_paths=PackedStringArray("controlNode")]
 layout_mode = 3
@@ -63,3 +64,21 @@ offset_bottom = 402.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_15713")
+
+[node name="TextArea" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -351.0
+offset_right = 273.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_k8q5f")
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+clip_text = true
