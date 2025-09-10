@@ -1,0 +1,86 @@
+{
+	"area1": {
+		"log1": [
+			"This is where the bulk of the backstory will be explained. Every map will have its own set of logs that are relevant to the area thay can be found in.",
+			"These logs are stored as .json files onn disk. Every area has its own key with a dictionary as value, which itself contains keys with Array[String] values.",
+			"Those arrays contain the actual logs",
+			"every position in the array represents a single page of a log and we can move back and forth between the pages."
+		],
+		"log2": [
+			"These logs often contain hints about the environment, including hidden pathways, puzzles, or enemy placements.",
+			"Each log is written in chronological order, making it easy to track the progression of events in the game world.",
+			"During development some logs include developer comments explaining why certain mechanics exist in the level design. ;)",
+			"Players who read all pages gain a deeper understanding of the lore and gameplay logic."
+		],
+		"log3": [
+			"Log entries sometimes reference external resources, such as artwork or reference sheets used during development.",
+			"Games often use these notes to explain why particular textures, sounds, or lighting were chosen.",
+			"The logs are intended to be comprehensive, so no major design decision is left undocumented.",
+			"Careful attention to these logs can reveal subtle interactions or easter eggs hidden in the area."
+		],
+		"log4": [
+			"Some logs are purely technical, describing performance benchmarks or AI pathfinding behaviors.",
+			"They may detail limitations or known bugs encountered during testing, giving insight into development challenges.",
+			"This information is invaluable when iterating on future maps or refining mechanics.",
+			"Despite the technical nature, these logs maintain the same page-by-page structure for consistency."
+		],
+		"log5": [
+			"Occasionally, logs include narrative snippets, such as character backstory or environmental lore.",
+			"These narrative logs are scattered throughout the level, often hinting at secrets or story connections.",
+			"The game uses them to maintain immersion while also explaining game mechanics subtly.",
+			"Each snippet is short, formatted to fit within a single page of the log array for readability."
+		]
+	},
+	"area2": {
+		"log1": [
+			"The second area has its own set of logs, focusing on environmental hazards and level layout.",
+			"These logs are intended to help the player understand the risks and strategic considerations of the zone.",
+			"Each page outlines a different section, with notes about terrain, enemies, and hidden items.",
+			"They maintain the same page-by-page approach, making navigation straightforward."
+		],
+		"log2": [
+			"Some logs highlight the placement of collectibles or resources vital for progression.",
+			"They describe challenges in reaching certain areas, including jump sequences or puzzle solutions.",
+			"The game occasionally insert tips or warnings to reduce player frustration without giving away secrets.",
+			"Following these logs closely can streamline gameplay for those exploring the zone thoroughly."
+		],
+		"log3": [
+			"These entries also document enemy behaviors and patrol patterns specific to the second area.",
+			"They include insights into AI decision-making, allowing developers to test balance and difficulty.",
+			"Logs may contain notes about expected player actions and potential exploits.",
+			"Each page is structured to keep information clear and separated for reference."
+		],
+		"log4": [
+			"Finally, some logs are narrative-focused, setting the scene for the second area’s backstory.",
+			"They may contain lore about characters, events, or locations, enriching the world-building.",
+			"These logs are interspersed with hints about puzzles or secrets to encourage exploration.",
+			"As with all logs, each page is concise, providing just enough detail to guide both developers and players."
+		]
+	},
+	"area3": {
+		"log1": [
+			"The third area’s logs dive into environmental storytelling, highlighting landmarks and unique geography.",
+			"These logs serve as both developer notes and in-universe guidance for the player.",
+			"Each page focuses on a different landmark or feature, explaining significance and hidden elements.",
+			"Navigation remains consistent: each page represents a discrete entry that can be reviewed independently."
+		],
+		"log2": [
+			"Some logs in this area describe interactions between NPCs and the player, detailing possible outcomes.",
+			"They provide insight into character motivations and suggest ways to trigger certain events.",
+			"Developers include notes on timing, positioning, and sequence of actions to ensure consistency.",
+			"Players who study these logs can anticipate challenges and plan their approach strategically."
+		],
+		"log3": [
+			"These entries often contain lore-heavy content, revealing the history of the third area and its inhabitants.",
+			"They might explain past events that shaped the environment, including ruins, artifacts, and abandoned structures.",
+			"Interspersed are subtle hints about secrets or rewards hidden in hard-to-reach locations.",
+			"Logs maintain the concise, page-oriented format for clarity and usability."
+		],
+		"log4": [
+			"Technical logs in this area discuss environmental hazards, AI pathing quirks, and optimization notes.",
+			"They document specific challenges encountered during testing, such as falling debris or dynamic obstacles.",
+			"Developers leave commentary on bug fixes and adjustments made to improve player experience.",
+			"As always, each page stands alone, giving a clear and accessible overview of a particular feature or issue."
+		]
+	}
+}

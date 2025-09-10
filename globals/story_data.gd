@@ -1,5 +1,6 @@
 extends Node
 
+const multiPageLogFilePath: String = "res://data/MultiPageLogs.json"
 
 #region Useless Messages
 const uselessMessages: Array[String] = [
@@ -17,26 +18,55 @@ func getUselessMessages() -> Array[String]:
 	return uselessMessages
 #endregion
 
-var multiPageLogList: Array
-const multiPageLogs: Dictionary = {
-	"log1": ["...1","...2","...3"],
-	"log2": ["...2","...3","...4"],
-	"log3": ["...3","...4","...5"],
-	"log4": ["...4","...5","...6"],
-	"log5": ["...5","...6","...7"]
-}
+var multiPageLogListArea1: Array
+var multiPageLogListArea2: Array
+var multiPageLogListArea3: Array
+var allMultiPageLogs: Dictionary
+var multiPageLogs_Area1: Dictionary
+var multiPageLogs_Area2: Dictionary
+var multiPageLogs_Area3: Dictionary
 
 func _ready() -> void:
-	getMultiPageLogList()
+	loadMultiPageLogs()
 
-func getMultiPageLogList():
-	multiPageLogList = multiPageLogs.keys()
+#===================================================================================================
 
-func getMultiPageLog():
-	if multiPageLogList.size() >= 1:
-		var randomLog = multiPageLogList.pick_random()
-		var result: Array = multiPageLogs[randomLog]
-		multiPageLogList.erase(randomLog)
+func readFromFile(filePath):
+	var file = FileAccess.open(filePath, FileAccess.READ)
+	var content = JSON.parse_string(file.get_as_text())
+	return content
+
+func loadMultiPageLogs():
+	allMultiPageLogs = readFromFile(multiPageLogFilePath)
+	multiPageLogs_Area1 = allMultiPageLogs["area1"]
+	multiPageLogs_Area2 = allMultiPageLogs["area2"]
+	multiPageLogs_Area3 = allMultiPageLogs["area3"]
+	multiPageLogListArea1 = multiPageLogs_Area1.keys()
+	multiPageLogListArea2 = multiPageLogs_Area2.keys()
+	multiPageLogListArea3 = multiPageLogs_Area3.keys()
+
+#===================================================================================================
+
+func getMultiPageLog(area):
+	var logs: Dictionary
+	var loglist: Array
+	match area:
+		"area1":
+			logs = multiPageLogs_Area1
+			loglist = multiPageLogListArea1
+		"area2":
+			logs = multiPageLogs_Area2
+			loglist = multiPageLogListArea2
+		"area3":
+			logs = multiPageLogs_Area3
+			loglist = multiPageLogListArea3
+		_:
+			print("No logs for this area...")
+	
+	if loglist.size() >= 1:
+		var randomLog = loglist.pick_random()
+		var result: Array = logs[randomLog]
+		logs.erase(randomLog)
 		return result
 	else:
 		return ["No more story to tell...."]

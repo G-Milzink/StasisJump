@@ -5,6 +5,7 @@ class_name _Object
 #===============================================================================
 
 @export var label: String
+@export var storyArea: String
 @export var isLocked: bool
 @export var hasLighting: bool
 @export var lighting: Light3D
@@ -45,6 +46,8 @@ func intialSetup():
 	textDisplay.set_visible(false)
 	if hasLighting:
 		lighting.set_color(ConfigSettings.interfaceLightingColor)
+	print("object: ", storyArea)
+	interface.storyArea = storyArea
 
 func conectSignals():
 	detectionArea.body_entered.connect(_on_body_entered)

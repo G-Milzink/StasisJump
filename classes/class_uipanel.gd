@@ -3,7 +3,7 @@ extends Control
 class_name _UIPanel
 
 @export var controlNode: Control
-
+var storyArea: String
 #===============================================================================
 
 func _ready() -> void:
