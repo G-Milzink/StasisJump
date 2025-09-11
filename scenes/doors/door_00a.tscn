@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bi4rrw3qt260y"]
 
-[ext_resource type="Script" uid="uid://cdyc660txh45k" path="res://classes/base_door.gd" id="1_07vg8"]
+[ext_resource type="Script" uid="uid://cdyc660txh45k" path="res://classes/class_door.gd" id="1_07vg8"]
 [ext_resource type="PackedScene" uid="uid://y6r4uketf3o4" path="res://assets/glb/doors/door00a/Door_00a_Left.glb" id="2_p72le"]
 [ext_resource type="PackedScene" uid="uid://66itibrd1tdq" path="res://assets/glb/doors/door00a/Door_00a_Right.glb" id="3_txbec"]
 [ext_resource type="PackedScene" uid="uid://cdbmt55ge1v56" path="res://assets/glb/doors/door00a/Door_00a_Sides.glb" id="4_s4jye"]

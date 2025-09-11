@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=10 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
-[ext_resource type="PackedScene" uid="uid://c0q0usyoi1dn4" path="res://scenes/props/dev_prop.tscn" id="2_lw0pn"]
-[ext_resource type="PackedScene" uid="uid://cbyl04xdgcv55" path="res://scenes/props/dev_prop_flavored.tscn" id="3_31le2"]
-[ext_resource type="PackedScene" uid="uid://hq0bafq8o7m0" path="res://scenes/props/dev_prop_coded.tscn" id="4_20u7o"]
+[ext_resource type="PackedScene" uid="uid://dqk4n4iu3csl0" path="res://scenes/objects/containers/chest_01.tscn" id="3_31le2"]
+[ext_resource type="PackedScene" uid="uid://cebsqk5dkj11m" path="res://scenes/objects/consoles/console_00a_live.tscn" id="4_20u7o"]
 [ext_resource type="PackedScene" uid="uid://bi4rrw3qt260y" path="res://scenes/doors/door_00a.tscn" id="5_a8gvr"]
-[ext_resource type="PackedScene" uid="uid://cd66y8rmrfioj" path="res://scenes/objects/_dev_object.tscn" id="5_isj55"]
+[ext_resource type="PackedScene" uid="uid://bkfspar7ccqmy" path="res://scenes/lights/wall_light_01.tscn" id="6_isj55"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -33,12 +32,6 @@ glow_blend_mode = 1
 
 [node name="Map_00" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(0.798135, 0.792348, 0.67077, 1)
-light_energy = 0.2
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_31le2")
 
@@ -57,49 +50,37 @@ data = {
 
 [node name="Props" type="Node3D" parent="."]
 
-[node name="DevProp" parent="Props" instance=ExtResource("2_lw0pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0366, 0, -23.7835)
-
-[node name="DevProp2" parent="Props" instance=ExtResource("2_lw0pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0366, 0, -23.7835)
-label = "prop"
-
-[node name="DevProp3" parent="Props" instance=ExtResource("2_lw0pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0366, 0, -23.7835)
-label = "prop w useless message"
-hasUselessMessage = true
-
-[node name="DevProp_Flavored" parent="Props" instance=ExtResource("3_31le2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -23.7887)
-label = "Flavored Prop"
-
-[node name="DevProp_Flavored2" parent="Props" instance=ExtResource("3_31le2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -23.7887)
-hasRepeatMessage = true
-label = "Flavored Prop w Repeat"
-hasUselessMessage = false
-
-[node name="DevProp_Coded" parent="Props" instance=ExtResource("4_20u7o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.5, 0, -21)
-initialMessage = Array[String](["Use this to wrap a code like  ", "*code*", " in a proper sentence."])
-repeatMessage = Array[String](["This message repeats the code: ", "*code*", "..."])
-label = "Prop w Code"
-
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="DevObject" parent="Objects" instance=ExtResource("5_isj55")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.55273, 0, -14)
-storyArea = "area1"
+[node name="Chest_01" parent="Objects" instance=ExtResource("3_31le2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -17)
+messages = Array[String](["", "ACTION DESCRIPTION HERE", "INTERFACE DESCRIPTION HERE"])
+actionIsReversable = true
+
+[node name="Chest_02" parent="Objects" instance=ExtResource("3_31le2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.75, 0, -19)
+messages = Array[String](["", "ACTION DESCRIPTION HERE", "INTERFACE DESCRIPTION HERE"])
+resetsOnExit = true
+
+[node name="Console_00a_live" parent="Objects" node_paths=PackedStringArray("codeSource") instance=ExtResource("4_20u7o")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.75, 0, -7)
+requiresCode = true
+codeSource = NodePath("")
 
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="Door00a" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -17)
 
+[node name="Door00a3" parent="Doors" instance=ExtResource("5_a8gvr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -7)
+
 [node name="Door00a2" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -3)
 requiredClearance = 1
 
-[node name="Door00a3" parent="Doors" instance=ExtResource("5_a8gvr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -7)
-doorState = "open"
+[node name="wallLight_01" parent="." instance=ExtResource("6_isj55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40407, 2.51965, -24.0326)
+color = Color(0.87, 0.86478, 0.5568, 1)
+strength = 0.4
+shadows = true

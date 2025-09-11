@@ -1,0 +1,267 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpsb7l6hjtqb6"]
+
+[ext_resource type="Script" uid="uid://n2teq28l5sq8" path="res://classes/class_uipanel_lockscreen.gd" id="1_ykgt3"]
+[ext_resource type="Texture2D" uid="uid://2ldgntk8ects" path="res://assets/png/ui/uipanels/uipanel_border.png" id="2_ooiq8"]
+[ext_resource type="Texture2D" uid="uid://cgh1ebuyxgpdw" path="res://assets/png/ui/uipanels/numberpad/button_border.png" id="3_1efdp"]
+[ext_resource type="Texture2D" uid="uid://dlbfmljiskf1e" path="res://assets/png/ui/uipanels/numberpad/button_border_pressed.png" id="4_6iqgm"]
+[ext_resource type="FontFile" uid="uid://bi4mpm5bc5t6v" path="res://assets/fonts/effortless/effortless.ttf" id="5_6iqgm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tm05"]
+texture = ExtResource("4_6iqgm")
+
+[node name="DevLockScreen" type="Control" node_paths=PackedStringArray("controlNode")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -200.0
+offset_right = 160.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykgt3")
+controlNode = NodePath("Control")
+metadata/_custom_type_script = "uid://n2teq28l5sq8"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -194.5
+offset_right = 156.0
+offset_bottom = 194.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.713726)
+
+[node name="Border" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -205.0
+offset_right = 160.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ooiq8")
+patch_margin_top = 13
+patch_margin_bottom = 13
+
+[node name="Screen" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -185.0
+offset_right = 1233.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.200005, 0.200005)
+texture = ExtResource("2_ooiq8")
+patch_margin_left = 13
+patch_margin_right = 13
+
+[node name="Digit0" type="Label" parent="Control/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -610.002
+offset_top = -281.0
+offset_right = -300.002
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 500
+horizontal_alignment = 1
+
+[node name="Digit1" type="Label" parent="Control/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.009
+offset_top = -281.0
+offset_right = -5.00897
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 500
+horizontal_alignment = 1
+
+[node name="Digit2" type="Label" parent="Control/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.01654
+offset_top = -281.0
+offset_right = 304.983
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 500
+horizontal_alignment = 1
+
+[node name="Digit3" type="Label" parent="Control/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 314.976
+offset_top = -281.0
+offset_right = 624.976
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 500
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = -121.0
+offset_top = -86.0
+offset_right = 193.0
+offset_bottom = 238.0
+scale = Vector2(0.900123, 0.900123)
+columns = 3
+
+[node name="NumPad1" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "1"
+icon_alignment = 1
+
+[node name="NumPad2" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "2"
+icon_alignment = 1
+
+[node name="NumPad3" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "3"
+icon_alignment = 1
+
+[node name="NumPad4" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "4"
+icon_alignment = 1
+
+[node name="NumPad5" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "5"
+icon_alignment = 1
+
+[node name="NumPad6" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "6"
+icon_alignment = 1
+
+[node name="NumPad7" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "7"
+icon_alignment = 1
+
+[node name="NumPad8" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "8"
+icon_alignment = 1
+
+[node name="NumPad9" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "9"
+icon_alignment = 1
+
+[node name="NumPadBack" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "<"
+icon_alignment = 1
+
+[node name="NumPad0" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6iqgm")
+theme_override_font_sizes/font_size = 50
+theme_override_icons/icon = ExtResource("3_1efdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1tm05")
+text = "0"
+icon_alignment = 1
