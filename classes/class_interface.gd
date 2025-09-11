@@ -12,7 +12,7 @@ class_name _Interface
 @export var mainScreen: _UIPanel
 
 var isLocked: bool = false
-var isOpen: bool = false
+var isActive: bool = false
 var storyArea: String
 signal interface_has_closed
 
@@ -33,18 +33,18 @@ func setStoryAreaFrom_Object(area: String) -> void:
 	storyArea = area
 
 func open():
-	if !isOpen:
+	if !isActive:
 		animationPlayer.play("activate")
-		isOpen = true
+		isActive = true
 		controlNode.set_visible(self.visible)
 		camera.set_current(true)
 
 func close():
-	if isOpen:
+	if isActive:
 		animationPlayer.play("deactivate")
 
 func _on_buttton_down():
-	if isOpen:
+	if isActive:
 		close()
 
 func _on_animation_finished(anim):
@@ -60,7 +60,7 @@ func handleActivation():
 		mainScreen.set_visible(true)
 
 func handleDeactivation():
-	isOpen = false
+	isActive = false
 	self.set_visible(false)
 	controlNode.set_visible(self.visible)
 	player.set_visible(true)
