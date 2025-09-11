@@ -2,22 +2,13 @@ extends Node
 
 const multiPageLogFilePath: String = "res://data/MultiPageLogs.json"
 
-#region Useless Messages
-const uselessMessages: Array[String] = [
-	"Nothing of interest here...",
-	"This is of no use to me.",
-	"I see no way to use this.",
-	"I don't know what to do with this.",
-	"Useless.",
-	".....",
-	"This doesn't work.",
-	"This won't help me.",
-	"I guess not..."
-]
+
+
 func getUselessMessages() -> Array[String]:
 	return uselessMessages
-#endregion
 
+
+var uselessMessages: Array
 var multiPageLogListArea1: Array
 var multiPageLogListArea2: Array
 var multiPageLogListArea3: Array
@@ -35,6 +26,9 @@ func readFromFile(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	return content
+
+func loadUselessMessages():
+	pass
 
 func loadMultiPageLogs():
 	allMultiPageLogs = readFromFile(multiPageLogFilePath)

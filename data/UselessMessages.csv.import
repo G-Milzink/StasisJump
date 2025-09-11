@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://fniqc5ps7a62"
+valid=false
+
+[deps]
+
+source_file="res://data/UselessMessages.csv"
+
+[params]
+
+compress=true
+delimiter=0
