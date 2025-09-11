@@ -3,10 +3,8 @@ class_name _UIPanel_Lockscreen
 
 #===============================================================================
 
-@export var digitsArray: Array[Label]
-
+var numpadIsActive: bool = false
 var currentDigit: int = 0
-var numpadIsActive: bool = true
 var code: String = "0451"
 signal code_entered
 
@@ -19,12 +17,33 @@ signal code_entered
 @onready var numPad7: Button = $Control/GridContainer/NumPad7
 @onready var numPad8: Button = $Control/GridContainer/NumPad8
 @onready var numPad9: Button = $Control/GridContainer/NumPad9
+@onready var numPadBack: Button = $Control/GridContainer/NumPadBack
 @onready var numPad0: Button = $Control/GridContainer/NumPad0
+@onready var digitsArray: Array[Label] = [
+	$Control/Screen/Digit0,
+	$Control/Screen/Digit1,
+	$Control/Screen/Digit2,
+	$Control/Screen/Digit3]
 
 #===============================================================================
 
 func _ready() -> void:
+	initialSetup()
+	re_setDigits()
+	connectSignals()
+
+#===============================================================================
+
+func initialSetup():
 	controlNode.set_modulate(ConfigSettings.interfaceBorderColor)
+
+func re_setDigits() -> void:
+	currentDigit = 0
+	for i in digitsArray.size():
+		digitsArray[i].set_text(".")
+	numpadIsActive = true
+
+func connectSignals():
 	numPad1.button_down.connect(_on_numpad_button_down.bind(1))
 	numPad2.button_down.connect(_on_numpad_button_down.bind(2))
 	numPad3.button_down.connect(_on_numpad_button_down.bind(3))
@@ -35,25 +54,27 @@ func _ready() -> void:
 	numPad8.button_down.connect(_on_numpad_button_down.bind(8))
 	numPad9.button_down.connect(_on_numpad_button_down.bind(9))
 	numPad0.button_down.connect(_on_numpad_button_down.bind(0))
-	resetDigits()
+	numPadBack.button_down.connect(_on_back_button_down)
 
-func resetDigits():
-	currentDigit = 0
-	for i in digitsArray.size():
-		digitsArray[i].set_text(".")
-
-func _on_numpad_button_down(value: int):
+func _on_numpad_button_down(value: int) -> void:
 	if numpadIsActive:
 		digitsArray[currentDigit].set_text(str(value))
 		currentDigit+=1
 		if currentDigit >= digitsArray.size():
+			numpadIsActive = false
+			await get_tree().create_timer(1.0).timeout
 			compareInputToCode(code)
 
-func compareInputToCode(code: String):
+func _on_back_button_down() -> void:
+	if currentDigit > 0:
+		currentDigit-=1
+		digitsArray[currentDigit].set_text(".")
+
+func compareInputToCode(code: String) -> void:
 	var input: String = ""
 	for i in digitsArray.size():
 		input += digitsArray[i].get_text()
 	if input == code:
 		emit_signal("code_entered")
 	else:
-		resetDigits()
+		re_setDigits()

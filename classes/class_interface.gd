@@ -13,8 +13,8 @@ class_name _Interface
 
 var isLocked: bool = false
 var isOpen: bool = false
-signal interface_has_closed
 var storyArea: String
+signal interface_has_closed
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
@@ -27,8 +27,10 @@ func _ready() -> void:
 	animationPlayer.animation_finished.connect(_on_animation_finished)
 	controlNode.set_visible(self.visible)
 	animationPlayer.play("default")
-	print("interface: ", storyArea)
 	mainScreen.storyArea = storyArea
+
+func setStoryAreaFrom_Object(area: String) -> void:
+	storyArea = area
 
 func open():
 	if !isOpen:

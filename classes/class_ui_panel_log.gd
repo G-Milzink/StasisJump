@@ -1,11 +1,11 @@
 extends _UIPanel
 class_name _UIPanel_Log
 
-
-
 var logArray: Array = [""]
+
 @onready var textArea: Label = $Control/TextArea
 
+#===============================================================================
 
 func _ready() -> void:
 	controlNode.set_modulate(ConfigSettings.interfaceBorderColor)

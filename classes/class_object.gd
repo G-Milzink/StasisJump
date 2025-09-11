@@ -17,7 +17,6 @@ class_name _Object
 @export var textDisplay: Label3D
 @export var interface: _Interface
 
-
 var message: String
 var playerInRange: bool = false
 var showingMessage: bool = false
@@ -26,6 +25,9 @@ var isActive: bool = false
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 
 #===============================================================================
+
+func _enter_tree() -> void:
+	propagate_call("setStoryAreaFrom_Object", [storyArea], true)
 
 func _ready() -> void:
 	intialSetup()
@@ -37,7 +39,7 @@ func _process(delta: float) -> void:
 
 #===============================================================================
 
-func intialSetup():
+func intialSetup() -> void:
 	interface.set_visible(false)
 	interface.isLocked = isLocked
 	textDisplay.set_modulate(ConfigSettings.interfaceTextColor)
@@ -46,30 +48,32 @@ func intialSetup():
 	textDisplay.set_visible(false)
 	if hasLighting:
 		lighting.set_color(ConfigSettings.interfaceLightingColor)
-	print("object: ", storyArea)
 	interface.storyArea = storyArea
 
-func conectSignals():
+func setStoryAreaFrom_Object(area: String) -> void:
+	storyArea = area
+
+func conectSignals() -> void:
 	detectionArea.body_entered.connect(_on_body_entered)
 	detectionArea.body_exited.connect(_on_body_exit)
 	animationPlayer.animation_finished.connect(_on_animation_finished)
 	interface.interface_has_closed.connect(_on_interface_has_closed)
 
-func _on_body_entered(body):
+func _on_body_entered(body) -> void:
 	if body == player:
 		playerInRange = true
 
-func _on_body_exit(body):
+func _on_body_exit(body) -> void:
 	if body == player:
 		playerInRange = false
 		showingMessage = false
 		message = label
 		textDisplay.set_text(message)
 
-func handleTextDisplay():
+func handleTextDisplay() -> void:
 	textDisplay.set_visible(playerInRange)
 
-func handleInteraction():
+func handleInteraction() -> void:
 	if playerInRange && Input.is_action_just_pressed("interact"):
 		if !isActive:
 			isActive = true
@@ -77,7 +81,7 @@ func handleInteraction():
 			if hasAnimation:
 				animationPlayer.play("activate")
 
-func _on_animation_finished(anim):
+func _on_animation_finished(anim) -> void:
 	if anim == "activate":
 		player.set_visible(false)
 		interface.set_visible(true)
@@ -85,5 +89,5 @@ func _on_animation_finished(anim):
 	if anim == "deactivate":
 		isActive = false
 
-func _on_interface_has_closed():
+func _on_interface_has_closed() -> void:
 	animationPlayer.play("deactivate")

@@ -9,7 +9,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tm05"]
 texture = ExtResource("4_6iqgm")
 
-[node name="DevLockScreen" type="Control" node_paths=PackedStringArray("digitsArray", "controlNode")]
+[node name="DevLockScreen" type="Control" node_paths=PackedStringArray("controlNode")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -23,7 +23,6 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ykgt3")
-digitsArray = [NodePath("Control/Screen/Digit0"), NodePath("Control/Screen/Digit1"), NodePath("Control/Screen/Digit2"), NodePath("Control/Screen/Digit4")]
 controlNode = NodePath("Control")
 metadata/_custom_type_script = "uid://n2teq28l5sq8"
 
@@ -142,7 +141,7 @@ theme_override_fonts/font = ExtResource("5_6iqgm")
 theme_override_font_sizes/font_size = 500
 horizontal_alignment = 1
 
-[node name="Digit4" type="Label" parent="Control/Screen"]
+[node name="Digit3" type="Label" parent="Control/Screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
