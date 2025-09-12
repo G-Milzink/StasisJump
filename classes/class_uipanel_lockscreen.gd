@@ -63,14 +63,14 @@ func _on_numpad_button_down(value: int) -> void:
 		if currentDigit >= digitsArray.size():
 			numpadIsActive = false
 			await get_tree().create_timer(1.0).timeout
-			compareInputToCode(code)
+			compareInputToCode()
 
 func _on_back_button_down() -> void:
 	if currentDigit > 0:
 		currentDigit-=1
 		digitsArray[currentDigit].set_text(".")
 
-func compareInputToCode(code: String) -> void:
+func compareInputToCode() -> void:
 	var input: String = ""
 	for i in digitsArray.size():
 		input += digitsArray[i].get_text()

@@ -12,7 +12,7 @@ extends Node3D
 @export var textDisplay: Label3D
 
 var message: String
-var messages: Array[String]
+var messages: Array
 
 var playerInRange: bool = false
 var showingMessage: bool = false

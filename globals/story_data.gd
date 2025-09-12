@@ -2,11 +2,8 @@ extends Node
 
 const multiPageLogFilePath: String = "res://data/MultiPageLogs.json"
 
-
-
-func getUselessMessages() -> Array[String]:
+func getUselessMessages() -> Array:
 	return uselessMessages
-
 
 var uselessMessages: Array
 var multiPageLogListArea1: Array
