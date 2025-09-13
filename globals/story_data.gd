@@ -1,11 +1,10 @@
 extends Node
 
 const multiPageLogFilePath: String = "res://data/MultiPageLogs.json"
-
-func getUselessMessages() -> Array:
-	return uselessMessages
+const generalMessagesFilePath: String = "res://data/GeneralMessages.json"
 
 var uselessMessages: Array
+var outOfReachMsssages: Array
 var multiPageLogListArea1: Array
 var multiPageLogListArea2: Array
 var multiPageLogListArea3: Array
@@ -16,6 +15,10 @@ var multiPageLogs_Area3: Dictionary
 
 func _ready() -> void:
 	loadMultiPageLogs()
+	loadUselessMessages()
+	loadOutOfReachMessages()
+	print(getOutOfReachMessage())
+	print(getUselessMessage())
 
 #===================================================================================================
 
@@ -23,9 +26,6 @@ func readFromFile(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	return content
-
-func loadUselessMessages():
-	pass
 
 func loadMultiPageLogs():
 	allMultiPageLogs = readFromFile(multiPageLogFilePath)
@@ -35,6 +35,12 @@ func loadMultiPageLogs():
 	multiPageLogListArea1 = multiPageLogs_Area1.keys()
 	multiPageLogListArea2 = multiPageLogs_Area2.keys()
 	multiPageLogListArea3 = multiPageLogs_Area3.keys()
+
+func loadUselessMessages():
+	uselessMessages = readFromFile(generalMessagesFilePath).useless
+
+func loadOutOfReachMessages():
+	outOfReachMsssages = readFromFile(generalMessagesFilePath).outOfReach
 
 #===================================================================================================
 
@@ -61,3 +67,9 @@ func getMultiPageLog(area):
 		return result
 	else:
 		return ["No more story to tell...."]
+
+func getUselessMessage() -> String:
+	return uselessMessages.pick_random()
+
+func getOutOfReachMessage():
+	return outOfReachMsssages.pick_random()

@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0366, 0, -23.7835)
 
 [node name="DevProp2" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0366, 0, -23.7835)
-label = "prop"
+label = "prop w label"
 
 [node name="DevProp3" parent="Props" instance=ExtResource("2_lw0pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0366, 0, -23.7835)

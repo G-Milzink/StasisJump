@@ -12,7 +12,6 @@ extends Node3D
 @export var textDisplay: Label3D
 
 var message: String
-var messages: Array
 
 var playerInRange: bool = false
 var showingMessage: bool = false
@@ -22,7 +21,6 @@ var showingMessage: bool = false
 #===============================================================================
 
 func _ready() -> void:
-	getMessages()
 	intialSetup()
 	conectSignals()
 	
@@ -54,13 +52,9 @@ func _on_body_exit(body):
 		message = label
 		textDisplay.set_text(message)
 
-func getMessages():
-	if hasUselessMessage:
-		messages = StoryData.getUselessMessages()
-
 func setMessage():
 	if hasUselessMessage: 
-		message = messages[randi_range(0, messages.size()-1)]
+		message = StoryData.getUselessMessage()
 	else:
 		message = label
 

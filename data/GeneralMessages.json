@@ -1,0 +1,23 @@
+{
+	"useless": [
+		"Nothing of interest here...",
+		"This is of no use to me.",
+		"I see no way to use this.",
+		"I don't know what to do with this.",
+		"Useless.",
+		".....",
+		"This doesn't work.",
+		"This won't help me.",
+		"I guess not..."
+	],
+	"outOfReach": [
+		"I can't reach that",
+		"I can't reach that from herre...",
+		"I need to get closer.",
+		"I will need to move closer...",
+		"That's too far away.",
+		"I should get a little closer.",
+		"My arms are not that long.",
+		"I can't do that from here."
+	]
+}
