@@ -15,7 +15,7 @@ var isPlayerInReach: bool = false
 var isSelected: bool = false
 var showingMessage: bool = false
 
-const HIGHLIGHT = preload("res://materials/highlight.tres")
+const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 
 @onready var player: _Player = get_tree().get_first_node_in_group("player")
 @onready var meshArray: Array = self.find_children("", "MeshInstance3D", true, false)

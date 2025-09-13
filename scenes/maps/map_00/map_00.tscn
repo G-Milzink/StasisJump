@@ -75,9 +75,9 @@ label = "Flavored Prop"
 
 [node name="DevProp_Flavored2" parent="Props" instance=ExtResource("3_31le2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -23.7887)
-hasUselessMessage = false
 hasRepeatMessage = true
 label = "Flavored Prop w Repeat"
+hasUselessMessage = false
 
 [node name="DevProp_Coded" parent="Props" instance=ExtResource("4_20u7o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.5, 0, -21)

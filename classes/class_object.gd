@@ -23,7 +23,7 @@ var showingMessage: bool = false
 var isActive: bool = false
 var isSelected: bool = false
 
-const HIGHLIGHT = preload("res://materials/highlight.tres")
+const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
 @onready var meshArray: Array = self.find_children("", "MeshInstance3D", true, false)
