@@ -1,11 +1,15 @@
 extends CharacterBody3D
 
+#===================================================================================================
 
-#region Player variables
-var currentHealth: float
-#endregion
+const SPEED = 2.25
 
-#region RayCast variables
+@onready var main : Node3D = get_tree().get_root().get_node("Main")
+@onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
+@onready var pivot: Node3D = $Pivot
+@onready var playerReach: Area3D = $PlayerReach
+
+#region RayCasting
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var mousePosition = Vector3()
@@ -15,14 +19,11 @@ var intersection : Dictionary
 var lookAtPosition = Vector3()
 #endregion
 
-const SPEED = 2.25
-
-@onready var main : Node3D = get_tree().get_root().get_node("Main")
-@onready var pivot: Node3D = $Pivot
-@onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
+#===================================================================================================
 
 func _ready() -> void:
-	pass
+	playerReach.body_entered.connect(_on_player_reach_entered)
+	playerReach.body_exited.connect(_on_player_reach_exited)
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -31,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		calculate_velocity()
 		move_and_slide()
 
+#===================================================================================================
 
 func rotate_player():
 	spaceState = get_world_3d().direct_space_state
@@ -61,3 +63,11 @@ func calculate_velocity():
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+func _on_player_reach_entered(body):
+	if body.is_in_group("interactive"):
+		body.isPlayerInReach = true
+
+func _on_player_reach_exited(body):
+	if body.is_in_group("interactive"):
+		body.isPlayerInReach = false
