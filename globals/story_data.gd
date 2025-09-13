@@ -17,8 +17,6 @@ func _ready() -> void:
 	loadMultiPageLogs()
 	loadUselessMessages()
 	loadOutOfReachMessages()
-	print(getOutOfReachMessage())
-	print(getUselessMessage())
 
 #===================================================================================================
 
