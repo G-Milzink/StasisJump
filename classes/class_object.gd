@@ -5,6 +5,7 @@ class_name _Object
 #===============================================================================
 
 @export var label: String
+@export var isInteractive: bool = true
 @export var storyArea: String
 @export var isLocked: bool
 @export var hasLighting: bool
@@ -15,7 +16,6 @@ class_name _Object
 @export_multiline var usedUpMessage: String
 @export var textDisplay: Label3D
 @export var interface: _Interface
-@export var meshArray: Array[MeshInstance3D]
 
 var message: String
 var isPlayerInReach: bool = false
@@ -26,6 +26,7 @@ var isSelected: bool = false
 const HIGHLIGHT = preload("res://materials/highlight.tres")
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
+@onready var meshArray: Array = self.find_children("", "MeshInstance3D", true, false)
 
 #===============================================================================
 
@@ -53,7 +54,8 @@ func intialSetup() -> void:
 	if hasLighting:
 		lighting.set_color(ConfigSettings.interfaceLightingColor)
 	interface.storyArea = storyArea
-	self.add_to_group("interactive")
+	if isInteractive:
+		self.add_to_group("interactive")
 
 func setStoryAreaFrom_Object(area: String) -> void:
 	storyArea = area

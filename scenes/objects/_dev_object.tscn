@@ -343,7 +343,7 @@ size = Vector3(0.6, 0.6, 0.6)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fickp"]
 points = PackedVector3Array(0.3, 0.3, 0.3, 0.3, 0.3, -0.3, -0.3, 0.3, 0.3, 0.3, -0.3, 0.3, 0.3, -0.3, -0.3, -0.3, 0.3, -0.3, -0.3, -0.3, 0.3, -0.3, -0.3, -0.3)
 
-[node name="DevObject" type="StaticBody3D" node_paths=PackedStringArray("lighting", "animationPlayer", "textDisplay", "interface", "meshArray")]
+[node name="DevObject" type="StaticBody3D" node_paths=PackedStringArray("lighting", "animationPlayer", "textDisplay", "interface")]
 script = ExtResource("1_fickp")
 label = "object"
 isLocked = true
@@ -353,7 +353,6 @@ hasAnimation = true
 animationPlayer = NodePath("AnimationPlayer")
 textDisplay = NodePath("TextDisplay")
 interface = NodePath("DevInterface")
-meshArray = [NodePath("MeshInstance3D")]
 metadata/_custom_type_script = "uid://c1brlecnniqdf"
 
 [node name="TextDisplay" type="Label3D" parent="."]

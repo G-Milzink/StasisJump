@@ -1,13 +1,19 @@
 extends Node3D
 
+#===============================================================================
+
 var target
 const RAY_LENGTH = 2000.0
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var camera = get_tree().get_first_node_in_group("playerCamera")
 
+#===============================================================================
+
 func _physics_process(delta):
 	handleTargetHiglighting()
+
+#===============================================================================
 
 func handleTargetHiglighting():
 	var new_target = castCursorRay()
@@ -19,7 +25,6 @@ func handleTargetHiglighting():
 		target = new_target
 		# highlight new
 		if target and target.is_in_group("interactive"):
-			print(target)
 			target.isSelected = true
 
 func castCursorRay():
@@ -33,3 +38,5 @@ func castCursorRay():
 	if result:
 		return result.collider
 	return null
+
+#===============================================================================

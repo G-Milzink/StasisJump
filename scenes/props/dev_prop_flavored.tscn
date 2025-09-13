@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbyl04xdgcv55"]
+[gd_scene load_steps=5 format=3 uid="uid://cbyl04xdgcv55"]
 
 [ext_resource type="Script" uid="uid://d4eumjwxp3mw6" path="res://classes/class_prop_flavored.gd" id="1_cmiq1"]
 
@@ -12,34 +12,23 @@ size = Vector3(0.8, 2, 0.4)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l7km0"]
 points = PackedVector3Array(-0.4, -1, -0.2, -0.4, -1, 0.2, -0.4, 1, -0.2, 0.4, -1, -0.2, 0.4, -1, 0.2, -0.4, 1, 0.2, 0.4, 1, -0.2, 0.4, 1, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ccwst"]
-size = Vector3(0.804169, 1, 0.846558)
-
-[node name="DevProp_Flavored" type="Node3D" node_paths=PackedStringArray("detectionArea", "textDisplay")]
+[node name="DevProp_Flavored" type="StaticBody3D" node_paths=PackedStringArray("textDisplay")]
 script = ExtResource("1_cmiq1")
 hasUselessMessage = true
-detectionArea = NodePath("Detection")
 textDisplay = NodePath("TextDisplay")
 metadata/_custom_type_script = "uid://d4eumjwxp3mw6"
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_cmiq1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("ConvexPolygonShape3D_l7km0")
-
-[node name="Detection" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000778198, 0.5, 0.222595)
-shape = SubResource("BoxShape3D_ccwst")
 
 [node name="TextDisplay" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00327, 0)
 billboard = 1
 no_depth_test = true
 autowrap_mode = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_cmiq1")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_l7km0")
