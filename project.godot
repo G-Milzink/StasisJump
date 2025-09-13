@@ -45,7 +45,9 @@ folder_colors={
 "res://classes/": "orange",
 "res://data/": "blue",
 "res://globals/": "yellow",
-"res://scenes/": "green"
+"res://materials/": "purple",
+"res://scenes/": "green",
+"res://shaders/": "pink"
 }
 
 [global_group]
