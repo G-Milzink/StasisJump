@@ -24,6 +24,7 @@ radius = 1.5
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_8afob")
+metadata/_custom_type_script = "uid://c65306n43kor"
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -50,3 +51,11 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerReach"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_dovo2")
+
+[node name="TextDisplay" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00327, 0)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "blah blah blah"
+autowrap_mode = 2

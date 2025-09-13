@@ -17,13 +17,13 @@ var showingMessage: bool = false
 
 const HIGHLIGHT = preload("res://materials/highlight.tres")
 
-@onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
+@onready var player: _Player = get_tree().get_first_node_in_group("player")
 @onready var meshArray: Array = self.find_children("", "MeshInstance3D", true, false)
 
 #===============================================================================
 
 func _ready() -> void:
-	intialSetup()
+	initialSetup()
 
 func _process(delta: float) -> void:
 	handleSelection()
@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 #===============================================================================
 
-func intialSetup():
+func initialSetup():
 	textDisplay.set_modulate(ConfigSettings.interfaceTextColor)
 	message = label
 	textDisplay.set_text(message)
@@ -56,11 +56,14 @@ func handleTextDisplay():
 
 func handleInteraction():
 	if Input.is_action_just_pressed("interact"):
-		if isPlayerInReach && isSelected:
-			if !showingMessage:
-					showingMessage = true
-					setMessage()
-					textDisplay.set_text(message)
+		if isSelected:
+			if isPlayerInReach:
+				if !showingMessage:
+						showingMessage = true
+						setMessage()
+						textDisplay.set_text(message)
+			else:
+				player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)
 
 func handleSelection():
 	if meshArray.size() == 0:

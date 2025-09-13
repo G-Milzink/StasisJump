@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name _Player
 
 #===================================================================================================
 
@@ -8,6 +9,7 @@ const SPEED = 2.25
 @onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
 @onready var pivot: Node3D = $Pivot
 @onready var playerReach: Area3D = $PlayerReach
+@onready var textDisplay: Label3D = $TextDisplay
 
 #region RayCasting
 var rayOrigin = Vector3()
@@ -24,6 +26,7 @@ var lookAtPosition = Vector3()
 func _ready() -> void:
 	playerReach.body_entered.connect(_on_player_reach_entered)
 	playerReach.body_exited.connect(_on_player_reach_exited)
+	textDisplay.set_modulate(ConfigSettings.interfaceTextColor)
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -71,3 +74,9 @@ func _on_player_reach_entered(body):
 func _on_player_reach_exited(body):
 	if body.is_in_group("interactive"):
 		body.isPlayerInReach = false
+
+func bark(barkText: String, barkDuration: float):
+	textDisplay.set_text(barkText)
+	textDisplay.set_visible(true)
+	await get_tree().create_timer(barkDuration).timeout
+	textDisplay.set_visible(false)

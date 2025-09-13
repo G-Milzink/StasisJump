@@ -76,16 +76,24 @@ func _on_body_exit(body) -> void:
 		textDisplay.set_text(message)
 
 func handleTextDisplay() -> void:
-	textDisplay.set_visible(isPlayerInReach)
+	if !isPlayerInReach && !isActive:
+		message = label
+		textDisplay.set_text(message)
+		showingMessage = false
+	textDisplay.set_visible(isSelected && !isActive)
 
 func handleInteraction() -> void:
 	if Input.is_action_just_pressed("interact"):
-		if isPlayerInReach && isSelected:
-			if !isActive:
-				isActive = true
-				PlayerData.hasControl = false
-				if hasAnimation:
-					animationPlayer.play("activate")
+		if isSelected:
+			if isPlayerInReach:
+				if !isActive:
+					isActive = true
+					PlayerData.hasControl = false
+					textDisplay.set_visible(false)
+					if hasAnimation:
+						animationPlayer.play("activate")
+			else:
+				player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)
 
 func _on_animation_finished(anim) -> void:
 	if anim == "activate":
