@@ -1,0 +1,2 @@
+extends _Object
+class_name _Object_Log

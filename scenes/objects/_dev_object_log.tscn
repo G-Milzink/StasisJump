@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd66y8rmrfioj"]
+[gd_scene load_steps=11 format=3 uid="uid://c87q38nwg2fmy"]
 
-[ext_resource type="Script" uid="uid://c1brlecnniqdf" path="res://classes/class_object.gd" id="1_fickp"]
-[ext_resource type="PackedScene" uid="uid://ba67fqi642ugn" path="res://scenes/interfaces/dev_interface_log.tscn" id="2_ods06"]
+[ext_resource type="Script" uid="uid://c5yk6cgbd8kfk" path="res://classes/class_object_log.gd" id="1_7d260"]
+[ext_resource type="PackedScene" uid="uid://ba67fqi642ugn" path="res://scenes/interfaces/dev_interface_log.tscn" id="2_k40be"]
 
 [sub_resource type="Animation" id="Animation_yuui4"]
 length = 0.001
@@ -346,16 +346,15 @@ points = PackedVector3Array(0.3, 0.3, 0.3, 0.3, 0.3, -0.3, -0.3, 0.3, 0.3, 0.3, 
 [node name="DevObject_Log" type="StaticBody3D" node_paths=PackedStringArray("lighting", "animationPlayer", "textDisplay", "interface")]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_fickp")
+script = ExtResource("1_7d260")
 label = "object"
-isLocked = true
 hasLighting = true
 lighting = NodePath("Lighting")
 hasAnimation = true
 animationPlayer = NodePath("AnimationPlayer")
 textDisplay = NodePath("TextDisplay")
 interface = NodePath("DevInterface")
-metadata/_custom_type_script = "uid://c1brlecnniqdf"
+metadata/_custom_type_script = "uid://c5yk6cgbd8kfk"
 
 [node name="TextDisplay" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -373,7 +372,7 @@ libraries = {
 }
 autoplay = "default"
 
-[node name="DevInterface" parent="." instance=ExtResource("2_ods06")]
+[node name="DevInterface" parent="." instance=ExtResource("2_k40be")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06992, 0.387026)
 visible = false
 

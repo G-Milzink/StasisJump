@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ba67fqi642ugn"]
+[gd_scene load_steps=12 format=3 uid="uid://byut1trmvca7d"]
 
-[ext_resource type="Script" uid="uid://dxi6dwc2a5g65" path="res://classes/class_interface.gd" id="1_pjgsk"]
-[ext_resource type="Texture2D" uid="uid://c515tj4lmbvv1" path="res://assets/png/ui/interfaces/splashScreen.png" id="2_7xdjf"]
-[ext_resource type="Texture2D" uid="uid://cwe02f74f1ie5" path="res://assets/png/ui/interfaces/vignette.png" id="3_x4uwk"]
-[ext_resource type="PackedScene" uid="uid://otsoy25ot5o5" path="res://scenes/uipanels/dev_log_panel.tscn" id="4_7xoau"]
-[ext_resource type="Texture2D" uid="uid://botma0kbogpl3" path="res://assets/png/ui/interfaces/back_button.png" id="4_x4uwk"]
-[ext_resource type="PackedScene" uid="uid://cpsb7l6hjtqb6" path="res://scenes/uipanels/dev_lockscreen.tscn" id="5_vqqhf"]
+[ext_resource type="Script" uid="uid://dxi6dwc2a5g65" path="res://classes/class_interface.gd" id="1_1bri8"]
+[ext_resource type="Texture2D" uid="uid://cwe02f74f1ie5" path="res://assets/png/ui/interfaces/vignette.png" id="2_yaa40"]
+[ext_resource type="PackedScene" uid="uid://cpsb7l6hjtqb6" path="res://scenes/uipanels/dev_lockscreen.tscn" id="3_x7sqx"]
+[ext_resource type="PackedScene" uid="uid://ce2se8k1uyeev" path="res://scenes/uipanels/dev_clearance_panel.tscn" id="4_1bri8"]
+[ext_resource type="Texture2D" uid="uid://c515tj4lmbvv1" path="res://assets/png/ui/interfaces/splashScreen.png" id="5_qpemj"]
+[ext_resource type="Texture2D" uid="uid://botma0kbogpl3" path="res://assets/png/ui/interfaces/back_button.png" id="6_g3lvd"]
 
 [sub_resource type="Animation" id="Animation_7xoau"]
 length = 0.001
@@ -251,14 +251,14 @@ _data = {
 &"default": SubResource("Animation_7xdjf")
 }
 
-[node name="DevInterface" type="Node3D" node_paths=PackedStringArray("controlNode", "animationPlayer", "camera", "exitButton", "lockScreen", "mainScreen")]
-script = ExtResource("1_pjgsk")
+[node name="DevInterface_Clearance" type="Node3D" node_paths=PackedStringArray("controlNode", "animationPlayer", "camera", "exitButton", "lockScreen", "mainScreen")]
+script = ExtResource("1_1bri8")
 controlNode = NodePath("Control")
 animationPlayer = NodePath("AnimationPlayer")
 camera = NodePath("Camera")
 exitButton = NodePath("Control/Exit")
 lockScreen = NodePath("Control/DevLockScreen")
-mainScreen = NodePath("Control/Dev_LogPanel")
+mainScreen = NodePath("Control/Dev_ClearancePanel")
 metadata/_custom_type_script = "uid://dxi6dwc2a5g65"
 
 [node name="Control" type="Control" parent="."]
@@ -276,14 +276,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_x4uwk")
+texture = ExtResource("2_yaa40")
 expand_mode = 2
 
-[node name="DevLockScreen" parent="Control" instance=ExtResource("5_vqqhf")]
+[node name="DevLockScreen" parent="Control" instance=ExtResource("3_x7sqx")]
 visible = false
 layout_mode = 1
 
-[node name="Dev_LogPanel" parent="Control" instance=ExtResource("4_7xoau")]
+[node name="Dev_ClearancePanel" parent="Control" instance=ExtResource("4_1bri8")]
 visible = false
 layout_mode = 1
 
@@ -296,7 +296,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_7xdjf")
+texture = ExtResource("5_qpemj")
 expand_mode = 2
 
 [node name="Exit" type="Button" parent="Control"]
@@ -311,7 +311,7 @@ offset_bottom = 77.0
 grow_horizontal = 0
 text = "
 "
-icon = ExtResource("4_x4uwk")
+icon = ExtResource("6_g3lvd")
 flat = true
 icon_alignment = 1
 

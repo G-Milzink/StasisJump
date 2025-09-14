@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce2se8k1uyeev"]
+
+[ext_resource type="Script" uid="uid://dbbb1eqgho2gd" path="res://classes/class_uipanel_clearance.gd" id="1_waed7"]
+[ext_resource type="Texture2D" uid="uid://2ldgntk8ects" path="res://assets/png/ui/uipanels/uipanel_border.png" id="2_dcmtp"]
+[ext_resource type="FontFile" uid="uid://bi4mpm5bc5t6v" path="res://assets/fonts/effortless/effortless.ttf" id="3_w4v3g"]
+
+[node name="Dev_ClearancePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_waed7")
+metadata/_custom_type_script = "uid://dbbb1eqgho2gd"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -387.0
+offset_right = 319.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.713726)
+
+[node name="Border" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -337.0
+offset_top = -402.0
+offset_right = 337.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dcmtp")
+
+[node name="TextArea" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -351.0
+offset_right = 273.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_w4v3g")
+theme_override_font_sizes/font_size = 40
+text = "
+
+
+
+
+additional 
+security clearance
+authorized
+...
+updating
+..."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true

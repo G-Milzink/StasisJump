@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxgeh43vuuuyp"]
+[gd_scene load_steps=12 format=3 uid="uid://bxgeh43vuuuyp"]
 
 [ext_resource type="MeshLibrary" uid="uid://bqq0cfhtwfmfh" path="res://scenes/maps/map_00/meshib_00.tres" id="1_aiir4"]
 [ext_resource type="PackedScene" uid="uid://c0q0usyoi1dn4" path="res://scenes/props/dev_prop.tscn" id="2_lw0pn"]
 [ext_resource type="PackedScene" uid="uid://cbyl04xdgcv55" path="res://scenes/props/dev_prop_flavored.tscn" id="3_31le2"]
 [ext_resource type="PackedScene" uid="uid://hq0bafq8o7m0" path="res://scenes/props/dev_prop_coded.tscn" id="4_20u7o"]
 [ext_resource type="PackedScene" uid="uid://bi4rrw3qt260y" path="res://scenes/doors/door_00a.tscn" id="5_a8gvr"]
-[ext_resource type="PackedScene" uid="uid://cd66y8rmrfioj" path="res://scenes/objects/_dev_object.tscn" id="5_isj55"]
+[ext_resource type="PackedScene" uid="uid://c87q38nwg2fmy" path="res://scenes/objects/_dev_object_log.tscn" id="5_isj55"]
+[ext_resource type="PackedScene" uid="uid://baqfl6k5pd7la" path="res://scenes/objects/_dev_object_clearance.tscn" id="6_e2cmi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aiir4"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -99,9 +100,12 @@ label = "Prop w Code"
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="DevObject" parent="Objects" instance=ExtResource("5_isj55")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.55273, 0, -14)
+[node name="DevObject_Log" parent="Objects" instance=ExtResource("5_isj55")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.5, 0, -14)
 storyArea = "area1"
+
+[node name="DevObject_Clearance" parent="Objects" instance=ExtResource("6_e2cmi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5, 0, -16.25)
 
 [node name="Doors" type="Node3D" parent="."]
 
