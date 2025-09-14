@@ -38,7 +38,6 @@ func _ready() -> void:
 	conectSignals()
 
 func _process(delta: float) -> void:
-	print(isSelected, isPlayerInReach)
 	handleTextDisplay()
 	handleSelection()
 	handleInteraction()

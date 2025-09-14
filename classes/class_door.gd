@@ -68,8 +68,9 @@ func handleSelection():
 
 func handleInteraction():
 	if Input.is_action_just_pressed("interact"):
-		if isSelected && isPlayerInReach:
-			if PlayerData.ClearanceLevel >= requiredClearance:
-				handleDynamicDoorState()
-		else:
-			player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)
+		if isSelected:
+			if isPlayerInReach:
+				if PlayerData.ClearanceLevel >= requiredClearance:
+					handleDynamicDoorState()
+			else:
+				player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)

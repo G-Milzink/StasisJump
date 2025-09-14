@@ -5,6 +5,8 @@ class_name _Player
 
 const SPEED = 2.25
 
+var isBarking: bool = false
+
 @onready var main : Node3D = get_tree().get_root().get_node("Main")
 @onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
 @onready var pivot: Node3D = $Pivot
@@ -86,7 +88,10 @@ func on_area_exited_player_reach(area):
 		area.isPlayerInReach = false
 
 func bark(barkText: String, barkDuration: float):
-	textDisplay.set_text(barkText)
-	textDisplay.set_visible(true)
-	await get_tree().create_timer(barkDuration).timeout
-	textDisplay.set_visible(false)
+	if !isBarking:
+		isBarking = true
+		textDisplay.set_text(barkText)
+		textDisplay.set_visible(true)
+		await get_tree().create_timer(barkDuration).timeout
+		textDisplay.set_visible(false)
+		isBarking = false
