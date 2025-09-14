@@ -24,8 +24,10 @@ var lookAtPosition = Vector3()
 #===================================================================================================
 
 func _ready() -> void:
-	playerReach.body_entered.connect(_on_player_reach_entered)
-	playerReach.body_exited.connect(_on_player_reach_exited)
+	playerReach.body_entered.connect(_on_body_entered_player_reach)
+	playerReach.body_exited.connect(_on_body_exited_player_reach)
+	playerReach.area_entered.connect(on_area_entered_player_reach)
+	playerReach.area_exited.connect(on_area_exited_player_reach)
 	textDisplay.set_modulate(ConfigSettings.interfaceTextColor)
 
 func _physics_process(delta: float) -> void:
@@ -67,13 +69,21 @@ func calculate_velocity():
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-func _on_player_reach_entered(body):
+func _on_body_entered_player_reach(body):
 	if body.is_in_group("interactive"):
 		body.isPlayerInReach = true
 
-func _on_player_reach_exited(body):
+func _on_body_exited_player_reach(body):
 	if body.is_in_group("interactive"):
 		body.isPlayerInReach = false
+
+func on_area_entered_player_reach(area):
+	if area.is_in_group("interactive"):
+		area.isPlayerInReach = true
+
+func on_area_exited_player_reach(area):
+	if area.is_in_group("interactive"):
+		area.isPlayerInReach = false
 
 func bark(barkText: String, barkDuration: float):
 	textDisplay.set_text(barkText)

@@ -1,5 +1,5 @@
 @icon("uid://duaa4aygnhcyo") 
-extends Node3D
+extends Area3D
 class_name _Door
 
 @export_group("settings:")
@@ -7,23 +7,27 @@ class_name _Door
 @export var requiredClearance: int = 0
 @export_group("nodes:")
 @export var animationPlayer: AnimationPlayer
-@export var detectionArea: Area3D
 
 var isFirstInteraction: bool = true
+var isSelected: bool = false
+var isPlayerInReach: bool = false
+
+const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 
 @onready var player: CharacterBody3D = get_tree().get_first_node_in_group("player")
+@onready var meshArray: Array = self.find_children("", "MeshInstance3D", true, false)
 
 #===============================================================================
 
 func _ready() -> void:
+	self.add_to_group("interactive")
 	connectSignals()
 	handleInitalDoorState()
 
 func _process(delta: float) -> void:
-	if detectionArea.overlaps_body(player):
-		if Input.is_action_just_pressed("interact"):
-			if PlayerData.ClearanceLevel >= requiredClearance:
-				handleDynamicDoorState()
+	handleSelection()
+	handleInteraction()
+	
 
 #===============================================================================
 
@@ -51,3 +55,21 @@ func handleDynamicDoorState():
 	elif doorState == "closed":
 		doorState = "open"
 		animationPlayer.play("opening")
+
+func handleSelection():
+	if meshArray.size() == 0:
+		return
+	if isSelected:
+		for mesh in meshArray:
+			mesh.set_material_overlay(HIGHLIGHT)
+	else:
+		for mesh in meshArray:
+			mesh.set_material_overlay(null)
+
+func handleInteraction():
+	if Input.is_action_just_pressed("interact"):
+		if isSelected && isPlayerInReach:
+			if PlayerData.ClearanceLevel >= requiredClearance:
+				handleDynamicDoorState()
+		else:
+			player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)

@@ -34,6 +34,7 @@ func castCursorRay():
 	var end = origin + camera.project_ray_normal(mousepos) * RAY_LENGTH
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
+	query.collision_mask = 2
 	var result = space_state.intersect_ray(query)
 	if result:
 		return result.collider
