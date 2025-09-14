@@ -83,8 +83,8 @@ func handleTextDisplay() -> void:
 	textDisplay.set_visible(isSelected && !isActive)
 
 func handleInteraction() -> void:
-	if Input.is_action_just_pressed("interact"):
-		if isSelected:
+	if isSelected:
+		if Input.is_action_just_pressed("interact"):
 			if isPlayerInReach:
 				if !isActive:
 					isActive = true
@@ -93,7 +93,7 @@ func handleInteraction() -> void:
 					if hasAnimation:
 						animationPlayer.play("activate")
 			else:
-				player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)
+				player.bark(StoryData.getOutOfReachMessage(), PlayerData.barkDuration)
 
 func _on_animation_finished(anim) -> void:
 	if anim == "activate":

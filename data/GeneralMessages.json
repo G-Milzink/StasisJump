@@ -19,5 +19,14 @@
 		"I should get a little closer.",
 		"My arms are not that long.",
 		"I can't do that from here."
+	],
+	"noClearance": [
+		"I need the proper security clearance.",
+		"I don't have clearance.",
+		"Need to find the right clearance.",
+		"Someone must have had clearance for this.",
+		"I should look around...",
+		"Locked...I need clearance",
+		"My security clearance level isn't high enough."
 	]
 }

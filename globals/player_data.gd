@@ -6,4 +6,4 @@ extends Node
 
 var isAiming: bool = false
 
-var outOfReachBarkDuration: float = 1.5
+var barkDuration: float = 1.5

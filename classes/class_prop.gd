@@ -55,15 +55,15 @@ func handleTextDisplay():
 	textDisplay.set_visible(isSelected)
 
 func handleInteraction():
-	if Input.is_action_just_pressed("interact"):
-		if isSelected:
+	if isSelected:
+		if Input.is_action_just_pressed("interact"):
 			if isPlayerInReach:
 				if !showingMessage:
 						showingMessage = true
 						setMessage()
 						textDisplay.set_text(message)
 			else:
-				player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)
+				player.bark(StoryData.getOutOfReachMessage(), PlayerData.barkDuration)
 
 func handleSelection():
 	if meshArray.size() == 0:

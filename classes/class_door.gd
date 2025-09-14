@@ -72,5 +72,7 @@ func handleInteraction():
 			if isPlayerInReach:
 				if PlayerData.ClearanceLevel >= requiredClearance:
 					handleDynamicDoorState()
+				else:
+					player.bark(StoryData.getNoClearanceMessage(), PlayerData.barkDuration)
 			else:
-				player.bark(StoryData.getOutOfReachMessage(), PlayerData.outOfReachBarkDuration)
+				player.bark(StoryData.getOutOfReachMessage(), PlayerData.barkDuration)

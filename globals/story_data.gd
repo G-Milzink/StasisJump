@@ -4,7 +4,8 @@ const multiPageLogFilePath: String = "res://data/MultiPageLogs.json"
 const generalMessagesFilePath: String = "res://data/GeneralMessages.json"
 
 var uselessMessages: Array
-var outOfReachMsssages: Array
+var outOfReachMessages: Array
+var noClearanceMessages: Array
 var multiPageLogListArea1: Array
 var multiPageLogListArea2: Array
 var multiPageLogListArea3: Array
@@ -17,6 +18,7 @@ func _ready() -> void:
 	loadMultiPageLogs()
 	loadUselessMessages()
 	loadOutOfReachMessages()
+	loadNoClearanceMessages()
 
 #===================================================================================================
 
@@ -38,7 +40,10 @@ func loadUselessMessages():
 	uselessMessages = readFromFile(generalMessagesFilePath).useless
 
 func loadOutOfReachMessages():
-	outOfReachMsssages = readFromFile(generalMessagesFilePath).outOfReach
+	outOfReachMessages = readFromFile(generalMessagesFilePath).outOfReach
+
+func loadNoClearanceMessages():
+	noClearanceMessages = readFromFile(generalMessagesFilePath).noClearance
 
 #===================================================================================================
 
@@ -70,4 +75,7 @@ func getUselessMessage() -> String:
 	return uselessMessages.pick_random()
 
 func getOutOfReachMessage():
-	return outOfReachMsssages.pick_random()
+	return outOfReachMessages.pick_random()
+
+func getNoClearanceMessage():
+	return noClearanceMessages.pick_random()
