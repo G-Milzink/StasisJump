@@ -85,6 +85,18 @@ initialMessage = Array[String](["Use this to wrap a code like  ", "*code*", " in
 repeatMessage = Array[String](["This message repeats the code: ", "*code*", "..."])
 label = "Prop w Code"
 
+[node name="DevProp_Coded2" parent="Props" instance=ExtResource("4_20u7o")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11, 0, -11.5)
+initialMessage = Array[String](["Use this to wrap a code like  ", "*code*", " in a proper sentence."])
+repeatMessage = Array[String](["This message repeats the code: ", "*code*", "..."])
+label = "Prop w Code"
+
+[node name="DevProp_Coded3" parent="Props" instance=ExtResource("4_20u7o")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15, 0, -11.5)
+initialMessage = Array[String](["Use this to wrap a code like  ", "*code*", " in a proper sentence."])
+repeatMessage = Array[String](["This message repeats the code: ", "*code*", "..."])
+label = "Prop w Code"
+
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="DevObject" parent="Objects" instance=ExtResource("5_isj55")]

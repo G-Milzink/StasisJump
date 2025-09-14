@@ -3,5 +3,5 @@
 [node name="PlayerCamera" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["playerCamera"]]
-transform = Transform3D(1, 0, 0, 0, 0.385536, 0.922693, 0, -0.922693, 0.385536, 0.0348358, 8.35061, 4.62165)
+transform = Transform3D(1, 0, 0, 0, 0.136407, 0.990653, 0, -0.990653, 0.136407, 0.0348358, 8.35061, 2.71949)
 current = true

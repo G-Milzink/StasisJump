@@ -22,7 +22,7 @@ var isFirstInteraction: bool = true
 #===============================================================================
 
 func  _ready() -> void:
-	getCode()
+	#getCode()
 	super()
 
 func setMessage():
