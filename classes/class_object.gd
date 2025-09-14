@@ -6,7 +6,7 @@ class_name _Object
 
 @export var label: String
 @export var isInteractive: bool = true
-@export var storyArea: String
+
 @export var isLocked: bool
 @export var hasLighting: bool
 @export var lighting: Light3D
@@ -30,8 +30,7 @@ const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 
 #===============================================================================
 
-func _enter_tree() -> void:
-	propagate_call("setStoryAreaFrom_Object", [storyArea], true)
+
 
 func _ready() -> void:
 	intialSetup()
@@ -53,12 +52,10 @@ func intialSetup() -> void:
 	textDisplay.set_visible(false)
 	if hasLighting:
 		lighting.set_color(ConfigSettings.interfaceLightingColor)
-	interface.storyArea = storyArea
 	if isInteractive:
 		self.add_to_group("interactive")
 
-func setStoryAreaFrom_Object(area: String) -> void:
-	storyArea = area
+
 
 func conectSignals() -> void:
 	animationPlayer.animation_finished.connect(_on_animation_finished)

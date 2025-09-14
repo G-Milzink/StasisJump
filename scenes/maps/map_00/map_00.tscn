@@ -106,6 +106,7 @@ storyArea = "area1"
 
 [node name="DevObject_Clearance" parent="Objects" instance=ExtResource("6_e2cmi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5, 0, -16.25)
+isLocked = true
 
 [node name="Doors" type="Node3D" parent="."]
 

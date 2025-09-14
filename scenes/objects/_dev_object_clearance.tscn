@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://baqfl6k5pd7la"]
 
-[ext_resource type="Script" uid="uid://c1brlecnniqdf" path="res://classes/class_object.gd" id="1_ib5js"]
+[ext_resource type="Script" uid="uid://bxftel0f7g448" path="res://classes/class_object_clearance.gd" id="1_ib5js"]
 [ext_resource type="PackedScene" uid="uid://ba67fqi642ugn" path="res://scenes/interfaces/dev_interface_log.tscn" id="2_1f8rv"]
 
 [sub_resource type="Animation" id="Animation_yuui4"]
@@ -354,7 +354,7 @@ hasAnimation = true
 animationPlayer = NodePath("AnimationPlayer")
 textDisplay = NodePath("TextDisplay")
 interface = NodePath("DevInterface")
-metadata/_custom_type_script = "uid://c1brlecnniqdf"
+metadata/_custom_type_script = "uid://bxftel0f7g448"
 
 [node name="TextDisplay" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
