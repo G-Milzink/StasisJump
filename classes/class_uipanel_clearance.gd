@@ -1,11 +1,15 @@
 extends _UIPanel
 class_name _UIPanel_Clearance
 
-# Called when the node enters the scene tree for the first time.
+@export var accept: Button
+
+var isFirsInteraction: bool = true
+
 func _ready() -> void:
-	pass # Replace with function body.
+	super()
+	accept.button_down.connect(_on_accept)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_accept():
+	if isFirsInteraction:
+		isFirsInteraction = false
+		PlayerData.ClearanceLevel += 1

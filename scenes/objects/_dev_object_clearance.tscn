@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://baqfl6k5pd7la"]
 
 [ext_resource type="Script" uid="uid://bxftel0f7g448" path="res://classes/class_object_clearance.gd" id="1_ib5js"]
-[ext_resource type="PackedScene" uid="uid://ba67fqi642ugn" path="res://scenes/interfaces/dev_interface_log.tscn" id="2_1f8rv"]
+[ext_resource type="PackedScene" uid="uid://byut1trmvca7d" path="res://scenes/interfaces/dev_interface_clearance.tscn" id="2_ib5js"]
 
 [sub_resource type="Animation" id="Animation_yuui4"]
 length = 0.001
@@ -353,7 +353,7 @@ lighting = NodePath("Lighting")
 hasAnimation = true
 animationPlayer = NodePath("AnimationPlayer")
 textDisplay = NodePath("TextDisplay")
-interface = NodePath("DevInterface")
+interface = NodePath("DevInterface_Clearance")
 metadata/_custom_type_script = "uid://bxftel0f7g448"
 
 [node name="TextDisplay" type="Label3D" parent="."]
@@ -372,10 +372,6 @@ libraries = {
 }
 autoplay = "default"
 
-[node name="DevInterface" parent="." instance=ExtResource("2_1f8rv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06992, 0.387026)
-visible = false
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("BoxMesh_fickp")
@@ -388,3 +384,6 @@ mesh = SubResource("BoxMesh_ods06")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 shape = SubResource("ConvexPolygonShape3D_fickp")
+
+[node name="DevInterface_Clearance" parent="." instance=ExtResource("2_ib5js")]
+visible = false

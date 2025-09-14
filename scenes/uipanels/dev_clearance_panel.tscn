@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce2se8k1uyeev"]
+[gd_scene load_steps=7 format=3 uid="uid://ce2se8k1uyeev"]
 
 [ext_resource type="Script" uid="uid://dbbb1eqgho2gd" path="res://classes/class_uipanel_clearance.gd" id="1_waed7"]
 [ext_resource type="Texture2D" uid="uid://2ldgntk8ects" path="res://assets/png/ui/uipanels/uipanel_border.png" id="2_dcmtp"]
 [ext_resource type="FontFile" uid="uid://bi4mpm5bc5t6v" path="res://assets/fonts/effortless/effortless.ttf" id="3_w4v3g"]
+[ext_resource type="Texture2D" uid="uid://cgh1ebuyxgpdw" path="res://assets/png/ui/uipanels/numberpad/button_border.png" id="4_5jlv3"]
+[ext_resource type="Texture2D" uid="uid://dlbfmljiskf1e" path="res://assets/png/ui/uipanels/numberpad/button_border_pressed.png" id="5_a78fi"]
 
-[node name="Dev_ClearancePanel" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loidn"]
+texture = ExtResource("5_a78fi")
+
+[node name="Dev_ClearancePanel" type="Control" node_paths=PackedStringArray("accept", "controlNode")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +17,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_waed7")
+accept = NodePath("Control/Accept")
+controlNode = NodePath("Control")
 metadata/_custom_type_script = "uid://dbbb1eqgho2gd"
 
 [node name="Control" type="Control" parent="."]
@@ -81,9 +88,27 @@ text = "
 additional 
 security clearance
 authorized
-...
-updating
-..."
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 clip_text = true
+
+[node name="Accept" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 42.0
+offset_right = 80.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_w4v3g")
+theme_override_font_sizes/font_size = 20
+theme_override_icons/icon = ExtResource("4_5jlv3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_loidn")
+text = "accept"
+icon_alignment = 1
