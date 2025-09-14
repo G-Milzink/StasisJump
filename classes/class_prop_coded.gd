@@ -23,6 +23,7 @@ var isFirstInteraction: bool = true
 
 func  _ready() -> void:
 	#getCode()
+	self.add_to_group("canCarryCode")
 	super()
 
 func setMessage():

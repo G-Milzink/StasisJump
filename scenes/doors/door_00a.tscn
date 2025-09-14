@@ -157,8 +157,8 @@ _data = {
 size = Vector3(2.03027, 2.95166, 0.265137)
 
 [node name="Door00a" type="Area3D" node_paths=PackedStringArray("animationPlayer")]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_07vg8")
 animationPlayer = NodePath("AnimationPlayer")
 metadata/_custom_type_script = "uid://cdyc660txh45k"

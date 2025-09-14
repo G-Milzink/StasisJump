@@ -57,6 +57,8 @@ player=""
 numberKeys=""
 playerCamera=""
 interactive="object is clickable"
+willAskForCode=""
+canCarryCode=""
 
 [input]
 
@@ -89,7 +91,7 @@ interact={
 [layer_names]
 
 3d_physics/layer_2="selectable"
-3d_physics/layer_3="clickable"
+3d_physics/layer_3="AreaControl"
 
 [rendering]
 

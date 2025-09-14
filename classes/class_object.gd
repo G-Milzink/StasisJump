@@ -54,6 +54,8 @@ func intialSetup() -> void:
 		lighting.set_color(ConfigSettings.interfaceLightingColor)
 	if isInteractive:
 		self.add_to_group("interactive")
+	if isLocked:
+		self.add_to_group("willAskForCode")
 
 
 

@@ -9,7 +9,7 @@ size = Vector3(0.8, 2, 0.4)
 points = PackedVector3Array(-0.4, -1, -0.2, -0.4, -1, 0.2, -0.4, 1, -0.2, 0.4, -1, -0.2, 0.4, -1, 0.2, -0.4, 1, 0.2, 0.4, 1, -0.2, 0.4, 1, 0.2)
 
 [node name="DevProp" type="StaticBody3D" node_paths=PackedStringArray("textDisplay")]
-collision_layer = 3
+collision_layer = 7
 script = ExtResource("1_jlwia")
 textDisplay = NodePath("TextDisplay")
 metadata/_custom_type_script = "uid://3g53j668buhn"

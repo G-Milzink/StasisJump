@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc601bjq82iiu"]
+
+[ext_resource type="Script" uid="uid://vjebaqc2trn8" path="res://classes/class_area.gd" id="1_mvti3"]
+
+[node name="AreaController" type="Area3D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mvti3")
+metadata/_custom_type_script = "uid://vjebaqc2trn8"
