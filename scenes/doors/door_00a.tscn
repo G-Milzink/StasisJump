@@ -154,12 +154,13 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p72le"]
-size = Vector3(2, 2, 1.5)
+size = Vector3(2.03027, 2.95166, 0.265137)
 
-[node name="Door00a" type="Node3D" node_paths=PackedStringArray("animationPlayer", "detectionArea")]
+[node name="Door00a" type="Area3D" node_paths=PackedStringArray("animationPlayer")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_07vg8")
 animationPlayer = NodePath("AnimationPlayer")
-detectionArea = NodePath("Area3D")
 metadata/_custom_type_script = "uid://cdyc660txh45k"
 
 [node name="Door_00a_Left" parent="." instance=ExtResource("2_p72le")]
@@ -175,8 +176,6 @@ libraries = {
 }
 autoplay = "closed"
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="HighlightCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00156251, 1.47583, -0.000244141)
 shape = SubResource("BoxShape3D_p72le")

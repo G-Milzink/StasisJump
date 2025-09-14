@@ -1,11 +1,19 @@
 extends CharacterBody3D
+class_name _Player
 
+#===================================================================================================
 
-#region Player variables
-var currentHealth: float
-#endregion
+const SPEED = 2.25
 
-#region RayCast variables
+var isBarking: bool = false
+
+@onready var main : Node3D = get_tree().get_root().get_node("Main")
+@onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
+@onready var pivot: Node3D = $Pivot
+@onready var playerReach: Area3D = $PlayerReach
+@onready var textDisplay: Label3D = $TextDisplay
+
+#region RayCasting
 var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var mousePosition = Vector3()
@@ -15,14 +23,14 @@ var intersection : Dictionary
 var lookAtPosition = Vector3()
 #endregion
 
-const SPEED = 2.25
-
-@onready var main : Node3D = get_tree().get_root().get_node("Main")
-@onready var pivot: Node3D = $Pivot
-@onready var camera: Camera3D = get_tree().get_first_node_in_group("playerCamera")
+#===================================================================================================
 
 func _ready() -> void:
-	pass
+	playerReach.body_entered.connect(_on_body_entered_player_reach)
+	playerReach.body_exited.connect(_on_body_exited_player_reach)
+	playerReach.area_entered.connect(on_area_entered_player_reach)
+	playerReach.area_exited.connect(on_area_exited_player_reach)
+	textDisplay.set_modulate(ConfigSettings.interfaceTextColor)
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -31,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		calculate_velocity()
 		move_and_slide()
 
+#===================================================================================================
 
 func rotate_player():
 	spaceState = get_world_3d().direct_space_state
@@ -61,3 +70,28 @@ func calculate_velocity():
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+func _on_body_entered_player_reach(body):
+	if body.is_in_group("interactive"):
+		body.isPlayerInReach = true
+
+func _on_body_exited_player_reach(body):
+	if body.is_in_group("interactive"):
+		body.isPlayerInReach = false
+
+func on_area_entered_player_reach(area):
+	if area.is_in_group("interactive"):
+		area.isPlayerInReach = true
+
+func on_area_exited_player_reach(area):
+	if area.is_in_group("interactive"):
+		area.isPlayerInReach = false
+
+func bark(barkText: String, barkDuration: float):
+	if !isBarking:
+		isBarking = true
+		textDisplay.set_text(barkText)
+		textDisplay.set_visible(true)
+		await get_tree().create_timer(barkDuration).timeout
+		textDisplay.set_visible(false)
+		isBarking = false

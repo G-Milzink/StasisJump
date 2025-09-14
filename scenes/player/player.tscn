@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhqxfueclspws"]
+[gd_scene load_steps=9 format=3 uid="uid://bhqxfueclspws"]
 
 [ext_resource type="Script" uid="uid://c65306n43kor" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://b6hgv4qlhl16t" path="res://scenes/player/torch/torch.tscn" id="2_dovo2"]
@@ -18,8 +18,13 @@ emission = Color(0.301961, 0.886275, 0.709804, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_gmlin"]
 material = SubResource("StandardMaterial3D_dovo2")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dovo2"]
+height = 0.899902
+radius = 1.75
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_8afob")
+metadata/_custom_type_script = "uid://c65306n43kor"
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -39,3 +44,19 @@ skeleton = NodePath("../../..")
 
 [node name="Torch" parent="Pivot" instance=ExtResource("2_dovo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258627, 1.36769, 0.549154)
+
+[node name="PlayerReach" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerReach"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550049, 0)
+shape = SubResource("CylinderShape3D_dovo2")
+
+[node name="TextDisplay" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00327, 0)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "blah blah blah"
+autowrap_mode = 2
