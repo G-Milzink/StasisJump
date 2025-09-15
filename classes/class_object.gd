@@ -54,7 +54,7 @@ func intialSetup() -> void:
 	if isInteractive:
 		self.add_to_group("interactive")
 	if isLocked:
-		self.add_to_group("willAskForCode")
+		self.add_to_group("canAskForCode")
 
 func conectSignals() -> void:
 	animationPlayer.animation_finished.connect(_on_animation_finished)

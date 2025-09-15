@@ -4,13 +4,14 @@ class_name _Door
 
 @export_group("settings:")
 @export_enum("open", "closed") var doorState: String = "closed"
-@export var requiredClearance: int = 0
+@export var isAreaPortal: bool 
 @export_group("nodes:")
 @export var animationPlayer: AnimationPlayer
 
 var isFirstInteraction: bool = true
 var isSelected: bool = false
 var isPlayerInReach: bool = false
+var requiredClearance: int = 0
 
 const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 
@@ -20,6 +21,8 @@ const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 #===============================================================================
 
 func _ready() -> void:
+	if isAreaPortal:
+		self.add_to_group("needsClearance")
 	self.add_to_group("interactive")
 	connectSignals()
 	handleInitalDoorState()
@@ -27,7 +30,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	handleSelection()
 	handleInteraction()
-	
 
 #===============================================================================
 
@@ -76,3 +78,6 @@ func handleInteraction():
 					player.bark(StoryData.getNoClearanceMessage(), PlayerData.barkDuration)
 			else:
 				player.bark(StoryData.getOutOfReachMessage(), PlayerData.barkDuration)
+
+func set_clearance_level(level: int)-> void:
+	requiredClearance = level

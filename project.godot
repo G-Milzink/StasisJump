@@ -22,6 +22,7 @@ StoryData="*res://globals/story_data.gd"
 ConfigSettings="*res://globals/config_settings.tscn"
 RandomGen="*res://globals/random_gen.gd"
 CursorControl="*res://globals/cursor_control.gd"
+GameData="*res://globals/game_data.gd"
 
 [debug]
 
@@ -57,8 +58,9 @@ player=""
 numberKeys=""
 playerCamera=""
 interactive="object is clickable"
-willAskForCode=""
 canCarryCode=""
+needsClearance=""
+canAskForCode=""
 
 [input]
 
