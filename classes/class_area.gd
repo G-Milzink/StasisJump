@@ -24,4 +24,3 @@ func distributeCodes():
 		allPossibleCodeCarriers.erase(codeCarrier)
 		codeCarrier.getCode()
 		lockedBody.interface.lockScreen.code = codeCarrier.getCode()
-	print(allPossibleCodeCarriers)

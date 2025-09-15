@@ -17,6 +17,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_waed7")
+messages = Array[String](["additional 
+security clearance
+authorized", "shutting down"])
 accept = NodePath("Control/Accept")
 controlNode = NodePath("Control")
 metadata/_custom_type_script = "uid://dbbb1eqgho2gd"
@@ -85,9 +88,7 @@ text = "
 
 
 
-additional 
-security clearance
-authorized
+
 "
 horizontal_alignment = 1
 autowrap_mode = 2

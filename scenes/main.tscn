@@ -15,4 +15,4 @@ script = ExtResource("1_o5qli")
 script = ExtResource("5_tipki")
 
 [node name="Player" parent="." instance=ExtResource("3_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3136, 0, -19.8953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8689, 1.90735e-06, -6.79945)

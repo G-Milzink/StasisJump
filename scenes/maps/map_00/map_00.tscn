@@ -118,14 +118,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.5, 
 storyArea = "area1"
 
 [node name="DevObject_Clearance" parent="Objects" instance=ExtResource("6_e2cmi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5, 0, -18.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5, 0, -6.75)
 isLocked = true
 
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="Door00a" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -17)
-requiredClearance = 1
 
 [node name="Door00a2" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 0, -3)
@@ -133,4 +132,3 @@ requiredClearance = 1
 
 [node name="Door00a3" parent="Doors" instance=ExtResource("5_a8gvr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -7)
-doorState = "open"

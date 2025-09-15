@@ -62,7 +62,7 @@ func _on_numpad_button_down(value: int) -> void:
 		currentDigit+=1
 		if currentDigit >= digitsArray.size():
 			numpadIsActive = false
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(ConfigSettings.panelTextDelay).timeout
 			compareInputToCode()
 
 func _on_back_button_down() -> void:

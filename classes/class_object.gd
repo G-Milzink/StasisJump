@@ -22,6 +22,7 @@ var isPlayerInReach: bool = false
 var showingMessage: bool = false
 var isActive: bool = false
 var isSelected: bool = false
+var isUsedUp: bool = false
 
 const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 
@@ -29,8 +30,6 @@ const HIGHLIGHT = preload("uid://deyqjaxtfqq7j")
 @onready var meshArray: Array = self.find_children("", "MeshInstance3D", true, false)
 
 #===============================================================================
-
-
 
 func _ready() -> void:
 	intialSetup()
@@ -57,8 +56,6 @@ func intialSetup() -> void:
 	if isLocked:
 		self.add_to_group("willAskForCode")
 
-
-
 func conectSignals() -> void:
 	animationPlayer.animation_finished.connect(_on_animation_finished)
 	interface.interface_has_closed.connect(_on_interface_has_closed)
@@ -84,6 +81,10 @@ func handleTextDisplay() -> void:
 func handleInteraction() -> void:
 	if isSelected:
 		if Input.is_action_just_pressed("interact"):
+			if isUsedUp:
+				textDisplay.set_text(usedUpMessage)
+				textDisplay.set_visible(true)
+				return
 			if isPlayerInReach:
 				if !isActive:
 					isActive = true
