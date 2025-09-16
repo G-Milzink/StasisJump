@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 		firstRun = false
 
 func handleClearanceDistribution():
+	allAreaPortals.shuffle()
 	for portal: _Door in allAreaPortals:
 		portal.set_clearance_level(GameData.nextClearanceLevel)
 		var clearanceCarrier = allPossibleCLearanceCarriers.pick_random()
