@@ -367,6 +367,7 @@ autowrap_mode = 2
 [node name="Lighting" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926453, 0.147614)
 light_energy = 0.0
+shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

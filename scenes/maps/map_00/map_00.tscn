@@ -45,12 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -17.25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 1.375, 2.875)
 shape = SubResource("BoxShape3D_o2x66")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_color = Color(0.798135, 0.792348, 0.67077, 1)
-light_energy = 0.2
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_31le2")
 
@@ -66,6 +60,62 @@ data = {
 }
 
 [node name="Lighting" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16.016342, 7.9994593, -14.0143)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16.016342, 7.9994593, -22.022472)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.990585, 7.9994593, -14.0143)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.990585, 7.9994593, -22.022472)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.99365, 7.9994593, -18.038013)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.010214, 7.9994593, -7.9885426)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -16.016342, 7.9994593, -8.008171)
+light_color = Color(0.9239254, 0.9434375, 0.89178246, 1)
+shadow_enabled = true
+spot_range = 14.606
+spot_attenuation = 0.11
+spot_angle = 61.49
 
 [node name="Props" type="Node3D" parent="."]
 
