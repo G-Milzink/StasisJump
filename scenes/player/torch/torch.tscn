@@ -1,16 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6hgv4qlhl16t"]
+[gd_scene load_steps=7 format=3 uid="uid://b6hgv4qlhl16t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sub6t"]
+render_priority = 1
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.30980393, 0.30980393, 0.30980393, 0.42745098)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e6wf"]
+next_pass = SubResource("StandardMaterial3D_sub6t")
 albedo_color = Color(0.543669, 0.458457, 0.288976, 1)
 metallic = 1.0
 roughness = 0.55
+stencil_mode = 2
+stencil_flags = 2
+stencil_color = Color(0.30980393, 0.30980393, 0.30980393, 0.42745098)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sub6t"]
 material = SubResource("StandardMaterial3D_4e6wf")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3wdu"]
+render_priority = 1
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0.30980393, 0.30980393, 0.30980393, 0.42745098)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7eu5"]
+next_pass = SubResource("StandardMaterial3D_i3wdu")
 emission_enabled = true
 emission = Color(1, 0.793, 0.46, 1)
+stencil_mode = 2
+stencil_flags = 2
+stencil_color = Color(0.30980393, 0.30980393, 0.30980393, 0.42745098)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_i3wdu"]
 material = SubResource("StandardMaterial3D_j7eu5")
